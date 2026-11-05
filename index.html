@@ -1,0 +1,1276 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FCFAF7">
+<meta name="description" content="Camilo y Carolina se casan el 11 de diciembre de 2026. Abre tu invitación.">
+<meta property="og:title" content="Camilo &amp; Carolina · 11 de diciembre de 2026">
+<meta property="og:description" content="Con mucho cariño te invitamos a celebrar nuestra boda. Toca para abrir tu invitación.">
+<meta property="og:type" content="website">
+<title>Camilo &amp; Carolina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: una columna de celular (máx. 480px) centrada sobre blanco hueso; sobre a pantalla completa al abrir; secciones separadas por ornamentos finos. */
+:root{
+  --fondo:#FCFAF7;       /* blanco hueso */
+  --rosa:#F4D0DC;        /* color dominante */
+  --rosa-medio:#E5B3C3;
+  --linea:#E8CCD5;
+  --papel:#FFFDFB;
+  --tinta:#4E3654;       /* ciruela: textos */
+  --uva:#7A5781;
+  --malva:#997179;
+  --lila:#BC95B4;
+  --rosa-viejo:#CEAFB4;
+  --gris:#5E626A;
+  --texto:#3B2A40;
+  --oro:#CDAE6C;         /* dorado champaña: líneas y detalles */
+  --oro-osc:#9E7C3C;
+  --f-script:'Pinyon Script', 'Snell Roundhand', 'Apple Chancery', cursive;
+  --f-serif:'Cormorant Garamond', 'Cormorant', Garamond, 'Times New Roman', serif;
+  --f-sans:'Jost', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{background:var(--fondo);color:var(--texto)}
+body{font-family:var(--f-sans);font-size:15px;line-height:1.6;font-variant-numeric:lining-nums;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html.locked,html.locked body{overflow:hidden;height:100%}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit}
+:focus-visible{outline:1px solid var(--tinta);outline-offset:3px}
+h1,h2,h3,p{margin:0}
+h2,h3{text-wrap:balance}
+
+/* ---------- SOBRE ---------- */
+.intro{position:fixed;inset:0;z-index:50;background:var(--fondo);overflow-x:hidden;overflow-y:auto;display:flex;flex-direction:column;transition:opacity 1.2s var(--ease),visibility 0s 1.2s}
+.intro.gone{opacity:0;visibility:hidden}
+.marco{position:fixed;inset:14px;border:1px solid var(--linea);pointer-events:none;z-index:0}
+.marco::after{content:"";position:absolute;inset:4px;border:1px solid #F2E2E7}
+.caida{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5;perspective:700px}
+.racimo{position:fixed;top:0;pointer-events:none;z-index:2}
+.racimo.izq{left:0;width:min(184px,47vw)}
+.racimo.der{right:0;width:min(128px,33vw)}
+.racimo img{display:block;width:100%;height:auto}
+.intro-in{margin:auto 0;width:100%;display:flex;flex-direction:column;align-items:center;gap:clamp(26px,5vh,40px);position:relative;z-index:4;padding-block:calc(clamp(80px,14vh,128px) + env(safe-area-inset-top,0px)) calc(44px + env(safe-area-inset-bottom,0px));padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.intro-txt{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.eyebrow{font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--gris)}
+.para-nombre{font-family:var(--f-serif);font-style:italic;font-size:28px;line-height:1.2;color:var(--tinta)}
+.intro-sub{max-width:280px;font-family:var(--f-serif);font-size:18px;line-height:1.4;color:var(--gris)}
+
+.env-wrap{position:relative;width:min(330px,calc(100vw - 64px));aspect-ratio:330/224;margin-top:clamp(84px,13vh,124px);margin-bottom:clamp(56px,17vw,78px);container-type:inline-size}
+/* fotos instantáneas detrás del sobre */
+.pola{position:absolute;z-index:2;display:block;width:29%;background:#FFFEFC;padding:1.3cqw 1.3cqw 5.2cqw;border-radius:1.5px;box-shadow:0 8px 16px rgba(60,40,50,.18),0 1px 2px rgba(60,40,50,.16)}
+.pola img{width:100%;aspect-ratio:1;object-fit:cover;filter:saturate(.92) contrast(1.03)}
+.pola::after{content:"";position:absolute;left:1.3cqw;right:1.3cqw;top:1.3cqw;aspect-ratio:1;background:linear-gradient(135deg,rgba(255,255,255,.28),rgba(255,255,255,0) 45%)}
+.pola > span{position:absolute;left:0;right:0;bottom:.6cqw;text-align:center;font-family:var(--f-script);font-size:3.6cqw;color:#6B5A6E;line-height:1.3}
+.pola.a{left:1%;top:-25%;transform:rotate(-13deg)}
+.pola.b{left:35.5%;top:-31%;transform:rotate(3deg)}
+.pola.c{left:70%;top:-22%;transform:rotate(12deg)}
+
+.env{all:unset;cursor:pointer;position:absolute;inset:0;z-index:2;perspective:1100px;container-type:inline-size;-webkit-tap-highlight-color:transparent}
+.env:focus-visible{outline:1px solid var(--uva);outline-offset:10px;border-radius:6px}
+.env svg{display:block;width:100%;height:100%}
+.env-back{position:absolute;inset:0;border-radius:5px;overflow:hidden;box-shadow:0 26px 40px rgba(122,87,129,.20),0 6px 12px rgba(122,87,129,.14)}
+.env-card{position:absolute;left:4.2%;right:4.2%;top:4.5%;height:89%;background:var(--papel);border-radius:2px;z-index:2;box-shadow:0 2px 10px rgba(78,54,84,.14);transition:transform 1.6s var(--ease) 3.1s}
+.env-card-in{position:absolute;inset:3.5%;border:1px solid #EBD3DA;display:flex;flex-direction:column;align-items:center;padding-top:5.5%;gap:1.9cqw}
+.env-card .k{font-size:clamp(8px,2.7cqw,9px);letter-spacing:.4em;text-transform:uppercase;color:var(--uva)}
+.env-card .n{font-family:var(--f-script);font-size:clamp(30px,12.6cqw,42px);line-height:1.18;color:var(--tinta);white-space:nowrap}
+.env-card .lema{font-family:var(--f-serif);font-style:italic;font-size:clamp(12px,4.4cqw,15px);line-height:1.3;color:var(--tinta);margin-top:1.4cqw;text-align:center}
+.env-card .lema-a svg{width:9px;height:9px;flex:none}
+.env-card .lema-a{display:flex;align-items:center;gap:6px;white-space:nowrap;font-size:clamp(7px,2.4cqw,8.5px);letter-spacing:.32em;text-transform:uppercase;color:var(--malva)}
+.env-card .d{font-size:clamp(9px,3cqw,10px);letter-spacing:.35em;color:var(--gris)}
+.env-front{position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:5px;overflow:hidden}
+.flap{position:absolute;left:0;right:0;top:0;height:60%;transform-origin:top center;transform-style:preserve-3d;z-index:4;transition:transform 1.3s cubic-bezier(.65,0,.35,1) .5s,z-index 0s 1.15s}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.face-b{transform:rotateX(180deg)}
+.seal{position:absolute;left:50%;top:39%;width:40%;margin-left:-20%;z-index:5;pointer-events:none;transition:transform .8s var(--ease),opacity .7s ease}
+.seal svg{overflow:visible;filter:drop-shadow(0 3px 2px rgba(74,52,16,.35)) drop-shadow(0 7px 8px rgba(74,52,16,.18))}
+.open .flap{transform:rotateX(180deg);z-index:1}
+.open .env-card{transform:translateY(-70%)}
+.open .seal{transform:translateY(12%) scale(.85);opacity:0}
+/* peonías sobre el sobre */
+.flores{position:absolute;z-index:4;pointer-events:none}
+.flores img{display:block;width:100%;height:auto}
+.flores.base{left:3%;bottom:-38%;width:88%}
+
+.bfs{position:absolute;left:50%;top:27%;width:0;height:0;z-index:6;pointer-events:none}
+/* Mariposa: vuelo (offset-path) > balanceo > perspectiva > inclinación 3D > alas que giran desde el cuerpo */
+.bf{position:absolute;left:0;top:0;width:var(--s);height:calc(var(--s) * .8);margin-left:calc(var(--s) / -2);margin-top:calc(var(--s) * -.4);pointer-events:none;offset-rotate:auto 90deg;offset-anchor:center}
+.bfs .bf{opacity:0;--tilt:16deg;--wa:-60deg;--wd:.3s}
+.bfs.op .bf{margin:0}
+.bf-bob{position:absolute;inset:0;animation:bob var(--bob,.9s) ease-in-out infinite alternate}
+@keyframes bob{from{transform:translateY(-3px)}to{transform:translateY(3px)}}
+.bf-3d{position:absolute;inset:0;perspective:420px}
+.bf-tilt{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--tilt,32deg))}
+.w{position:absolute;top:0;width:50%;height:100%;transform-style:preserve-3d;animation:wingR var(--wd,.24s) ease-in-out infinite alternate}
+.w.r{left:50%;transform-origin:0 50%}
+.w.l{right:50%;transform-origin:100% 50%;animation-name:wingL}
+.w svg{display:block;width:100%;height:100%;overflow:visible}
+.w.l svg{transform:scaleX(-1)}
+@keyframes wingR{from{transform:rotateY(10deg)}to{transform:rotateY(var(--wa,-74deg))}}
+@keyframes wingL{from{transform:rotateY(-10deg)}to{transform:rotateY(calc(var(--wa,-74deg) * -1))}}
+.cuerpo{position:absolute;left:50%;top:-14%;width:30%;height:116%;margin-left:-15%;transform:translateZ(1px)}
+.cuerpo svg{display:block;width:100%;height:100%;overflow:visible}
+.bf.posada{--wd:1.5s;--wa:-58deg;--bob:2.4s}
+.bf.posada .bf-bob{animation-name:none}
+.bf.posada .w{animation-delay:var(--wdelay,0s)}
+.posa{position:absolute;width:0;height:0;z-index:3;pointer-events:none}
+.posa .bf{--tilt:24deg;filter:drop-shadow(0 4px 3px rgba(78,54,84,.18))}
+
+.hoja{position:absolute;left:0;top:0;width:var(--h);height:auto;opacity:0;filter:drop-shadow(2px 5px 3px rgba(50,64,54,.22));will-change:transform}
+
+.intro-cta{min-height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.hint{font-family:var(--f-serif);font-style:italic;font-size:19px;color:var(--tinta);animation:breathe 2.8s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.5}50%{opacity:1}}
+.btn-ver{all:unset;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 34px;border-radius:999px;background:var(--tinta);color:var(--fondo);font-size:12px;letter-spacing:.3em;text-transform:uppercase;opacity:0;transform:translateY(10px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.btn-ver.show{opacity:1;transform:none}
+.btn-ver:focus-visible{outline:1px solid var(--tinta);outline-offset:4px}
+
+/* ---------- VISOR DE FOTOS ---------- */
+.listas .pola{cursor:zoom-in}
+.tip-fotos{font-family:var(--f-serif);font-style:italic;font-size:15px;color:var(--gris);opacity:0;transition:opacity 1s var(--ease)}
+.tip-fotos.show{opacity:1}
+.visor{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;background:rgba(43,30,48,.84);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding-block:calc(64px + env(safe-area-inset-top,0px)) calc(64px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));opacity:0;transition:opacity .45s var(--ease)}
+.visor.on{opacity:1}
+.v-fig{position:relative;margin:0;background:#FFFEFC;padding:10px 10px 46px;width:min(100%,440px);box-shadow:0 30px 60px rgba(0,0,0,.35);transform:scale(.88) rotate(-3deg);transition:transform .6s var(--ease)}
+.visor.on .v-fig{transform:none}
+.v-fig img{display:block;width:100%;max-height:calc(100vh - 230px);object-fit:contain;background:#F3EEEA}
+.v-fig figcaption{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-family:var(--f-script);font-size:24px;color:#6B5A6E}
+.v-btn{all:unset;cursor:pointer;position:absolute;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,253,251,.16);color:#FFFDFB;border:1px solid rgba(255,253,251,.4)}
+.v-btn:focus-visible{outline:1px solid #FFFDFB;outline-offset:3px}
+.v-cerrar{top:calc(12px + env(safe-area-inset-top,0px));right:calc(14px + env(safe-area-inset-right,0px))}
+.v-nav{bottom:calc(10px + env(safe-area-inset-bottom,0px))}
+.v-nav.v-ant{left:calc(50% - 58px)}
+.v-nav.v-sig{left:calc(50% + 12px)}
+
+/* ---------- MENÚ DEL RESTAURANTE ---------- */
+button.btn{cursor:pointer;font:inherit;font-size:12px}
+.btn.cal{padding:0 24px;white-space:nowrap;letter-spacing:.12em;margin-top:-4px}
+.btns .btn{white-space:nowrap;letter-spacing:.1em;padding:0 12px}
+.menu-visor{position:fixed;inset:0;z-index:85;display:flex;flex-direction:column;background:#1E1620;color:#FFFDFB;opacity:0;transition:opacity .4s var(--ease)}
+.menu-visor.on{opacity:1}
+.mv-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:calc(14px + env(safe-area-inset-top,0px)) 10px;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(14px,env(safe-area-inset-right,0px))}
+.mv-k{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--oro)}
+.mv-t{font-family:var(--f-script);font-weight:400;font-size:34px;line-height:1.1;color:#F4D0DC}
+.mv-cerrar{all:unset;cursor:pointer;flex:none;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,253,251,.35);color:#FFFDFB}
+.mv-cerrar:focus-visible,.mv-chip:focus-visible{outline:1px solid #FFFDFB;outline-offset:3px}
+.mv-chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px))}
+.mv-chips::-webkit-scrollbar{display:none}
+.mv-chip{all:unset;cursor:pointer;flex:none;padding:9px 15px;border-radius:999px;border:1px solid rgba(205,174,108,.6);color:#F4D0DC;font-size:12px;letter-spacing:.06em;transition:background .3s ease,color .3s ease}
+.mv-chip[aria-current="true"]{background:var(--oro);border-color:var(--oro);color:#2B1E30}
+.mv-paginas{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;display:flex;flex-direction:column;align-items:center;gap:12px;padding-block:4px calc(28px + env(safe-area-inset-bottom,0px));padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px))}
+.mv-paginas img{display:block;width:100%;max-width:640px;height:auto;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.4);background:#2A2028}
+.mv-nota{font-family:var(--f-serif);font-style:italic;font-size:16px;color:#E8D9DF;text-align:center;padding:8px 12px 0}
+
+/* ---------- PADRINOS ---------- */
+.padrinos{position:fixed;inset:0;z-index:56;overflow-y:auto;display:flex;background:radial-gradient(circle at 50% 30%,#FFFDF8 0%,var(--fondo) 70%);opacity:0;transition:opacity 1s var(--ease)}
+.padrinos.on{opacity:1}
+.padrinos .bfs{position:fixed;left:50%;top:22%}
+.pad-carta{position:relative;margin:auto;width:min(100%,420px);display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:42px 26px 34px;margin-block:calc(28px + env(safe-area-inset-top,0px)) calc(28px + env(safe-area-inset-bottom,0px));margin-inline:max(16px,env(safe-area-inset-left,0px));background:var(--papel);border:1px solid var(--oro);box-shadow:inset 0 0 0 6px var(--papel),inset 0 0 0 7px rgba(205,174,108,.55),0 24px 50px rgba(122,87,129,.14);transform:translateY(16px);transition:transform 1.2s var(--ease)}
+.padrinos.on .pad-carta{transform:none}
+.pad-carta p{font-family:var(--f-serif);font-size:18px;line-height:1.55;color:var(--texto);max-width:32ch}
+.pad-k{font-family:var(--f-sans)!important;font-size:11px!important;letter-spacing:.4em;text-transform:uppercase;color:var(--gris)!important}
+.pad-t{font-family:var(--f-script);font-weight:400;font-size:44px;line-height:1.15;color:var(--tinta)}
+.pad-n{font-family:var(--f-sans)!important;font-size:12px!important;letter-spacing:.42em;text-transform:uppercase;color:var(--oro-osc)!important;margin-bottom:6px}
+.pad-f{font-style:italic}
+.pad-f span{font-family:var(--f-script);font-style:normal;font-size:32px;line-height:1.4;color:var(--tinta)}
+.pad-carta .btn-ver{margin-top:10px}
+
+/* ---------- MÚSICA ---------- */
+.mus{all:unset;cursor:pointer;position:fixed;z-index:60;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:48px;height:48px;border-radius:50%;border:1px solid var(--rosa-viejo);background:var(--papel);box-shadow:0 6px 18px rgba(78,54,84,.14);display:flex;align-items:center;justify-content:center;gap:3px;opacity:0;pointer-events:none;transition:opacity .8s ease}
+.mus.show{opacity:1;pointer-events:auto}
+.mus:focus-visible{outline:1px solid var(--tinta);outline-offset:3px}
+.bar{width:2px;height:15px;background:var(--uva);border-radius:1px;transform-origin:bottom;transform:scaleY(.35);animation:eq 1.1s ease-in-out infinite;animation-play-state:paused}
+.mus.on .bar{animation-play-state:running}
+@keyframes eq{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+
+/* ---------- PÁGINA ---------- */
+.page{max-width:480px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));padding-block:0 96px;display:flex;flex-direction:column;align-items:center;text-align:center}
+section{width:100%;display:flex;flex-direction:column;align-items:center;gap:22px;padding-block:56px}
+.orn{display:block}
+.script{font-family:var(--f-script);font-weight:400;color:var(--tinta);line-height:1.25}
+.serif{font-family:var(--f-serif);color:var(--tinta)}
+.lead{font-size:15px;line-height:1.65;max-width:34ch;color:var(--texto)}
+
+/* Portada */
+.hero{padding-top:110px;gap:30px}
+.arch{position:relative;width:min(258px,calc(100vw - 140px));height:min(355.86px,calc((100vw - 140px) * 1.37931));margin-top:40px;margin-bottom:64px}
+/* foto de portada: tamaño y arco explícitos (sin aspect-ratio ni animación) para que se vea en todos los celulares */
+.arch-photo{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;border-radius:50% 50% 0 0 / 36.25% 36.25% 0 0;overflow:hidden;background:#F1E4E8 url("img/sombrilla.jpg") center 30% / cover no-repeat;-webkit-transform:translateZ(0);transform:translateZ(0)}
+.arch-photo img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center 30%}
+/* marco dorado renderizado: su abertura coincide con la foto (2.9 x 4.0 en un lienzo de 4.6 x 5.43) */
+.arch-marco{position:absolute;left:-29.31%;top:-17%;width:158.62%;max-width:none;height:auto;pointer-events:none;z-index:1}
+.arch-sello{position:absolute;left:50%;top:-11%;width:36%;margin-left:-18%;z-index:2}
+.arch-sello svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 3px 2px rgba(74,52,16,.35)) drop-shadow(0 7px 8px rgba(74,52,16,.18))}
+.arch .posa{z-index:3}
+.names{display:flex;flex-direction:column;align-items:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.cita{margin:0;max-width:31ch;display:flex;flex-direction:column;align-items:center;gap:14px;animation:rise 1.6s var(--ease) .3s both}
+.cita p{font-family:var(--f-serif);font-style:italic;font-size:25px;line-height:1.5;color:var(--tinta);text-wrap:balance}
+.cita cite{font-style:normal;font-size:10.5px;letter-spacing:.3em;line-height:1.8;text-transform:uppercase;color:var(--oro-osc)}
+.names .script{font-size:clamp(46px,14vw,56px)}
+.names .amp{font-family:var(--f-serif);font-style:italic;font-size:26px;line-height:1;color:var(--malva)}
+.write{animation:write 2.8s cubic-bezier(.45,.05,.35,1) .4s both}
+@keyframes write{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.fullnames{font-family:var(--f-serif);font-size:16px;line-height:1.5;color:var(--gris)}
+.datebar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center;width:100%}
+.datebar .side{border-top:1px solid var(--oro);border-bottom:1px solid var(--oro);padding:10px 0;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--tinta)}
+.datebar .mid{display:flex;flex-direction:column;align-items:center}
+.datebar .mid small{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gris)}
+.datebar .mid b{font-family:var(--f-sans);font-weight:300;font-size:54px;line-height:1.05;color:var(--tinta);font-variant-numeric:lining-nums}
+
+/* Cuenta regresiva */
+.cd{position:relative;width:100%;background:var(--rosa);border-radius:26px;padding:26px 16px 24px;display:flex;flex-direction:column;align-items:center;gap:14px;box-shadow:inset 0 0 0 6px var(--rosa),inset 0 0 0 7px var(--rosa-medio)}
+.cd .script{font-size:34px}
+.cd-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;width:100%}
+.cd-u{display:flex;flex-direction:column;align-items:center;gap:4px;background:var(--papel);border:1px solid var(--rosa-medio);border-radius:14px;padding:12px 0 10px;min-width:0}
+.cd-u b{font-family:var(--f-sans);font-weight:300;font-size:30px;line-height:1.1;color:var(--tinta);font-variant-numeric:lining-nums tabular-nums}
+.cd-u b.tick{animation:tick .6s var(--ease)}
+@keyframes tick{from{opacity:.25;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.cd-u small{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--uva)}
+.cd p{font-family:var(--f-serif);font-style:italic;font-size:17px;color:#5E4264}
+
+/* Ceremonia */
+.oval{position:relative;width:min(250px,calc(100vw - 100px));aspect-ratio:26/35}
+.oval::before{content:"";position:absolute;inset:-10px;border:1px solid var(--rosa-viejo);border-radius:999px}
+.oval .ph{position:absolute;inset:0;border-radius:999px;overflow:hidden;background:#F1E4E8}
+.oval img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.icono-iglesia{display:block;margin-top:18px}
+.place{font-family:var(--f-serif);font-weight:500;font-size:32px;line-height:1.15;color:var(--tinta)}
+.hour{display:flex;flex-direction:column;align-items:center}
+.hour b{font-family:var(--f-serif);font-weight:500;font-size:58px;line-height:1;color:var(--tinta)}
+.hour small{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gris);margin-top:8px}
+.note{width:100%;display:flex;gap:14px;align-items:flex-start;text-align:left;background:var(--papel);border:1px solid var(--rosa-medio);border-radius:18px;padding:18px;box-shadow:inset 0 0 0 4px var(--papel),inset 0 0 0 5px var(--rosa)}
+.note svg{flex-shrink:0;margin-top:2px}
+.note strong{display:block;font-family:var(--f-serif);font-size:20px;font-weight:600;color:var(--tinta);line-height:1.3;margin-bottom:4px}
+.note p{font-size:14px;line-height:1.55}
+.map{position:relative;width:100%;aspect-ratio:342/300;border-radius:22px;overflow:hidden;background:#F8ECEF;border:1px solid #E9CFD7}
+.map svg,.map iframe{display:block;width:100%;height:100%;border:0}
+.map-tag{position:absolute;left:12px;top:12px;background:var(--papel);border-radius:10px;padding:6px 10px;font-size:11px;color:var(--tinta);border:1px solid #E5C6CF;text-align:left;line-height:1.35}
+.route{stroke-dasharray:520;stroke-dashoffset:520}
+.map.play .route{animation:route 3.4s cubic-bezier(.45,.05,.35,1) .3s forwards}
+@keyframes route{to{stroke-dashoffset:0}}
+.pin{opacity:0;transform-box:fill-box;transform-origin:bottom center}
+.map.play .pin{animation:drop 1.2s var(--ease) 3.3s both}
+@keyframes drop{0%{transform:translateY(-40px);opacity:0}70%{transform:translateY(2px);opacity:1}100%{transform:none;opacity:1}}
+.ripple{opacity:0}
+.map.play .ripple{animation:ripple 2.4s ease-out 4s infinite}
+@keyframes ripple{from{r:6;opacity:.6}to{r:30;opacity:0}}
+.btns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 18px;border-radius:999px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:1px solid var(--tinta);color:var(--tinta);background:transparent}
+.btn.solid{background:var(--tinta);color:var(--fondo)}
+.timeline{width:100%;text-align:left;padding:0 16px;display:flex;flex-direction:column}
+.tl{display:flex;gap:16px;align-items:flex-start}
+.tl i{display:flex;flex-direction:column;align-items:center;padding-top:7px}
+.tl i::before{content:"";width:10px;height:10px;border-radius:50%;border:1px solid var(--tinta);background:var(--rosa)}
+.tl:not(:last-child) i::after{content:"";width:1px;height:46px;background:var(--oro)}
+.tl strong{font-family:var(--f-serif);font-size:22px;font-weight:500;color:var(--tinta)}
+.tl span{display:block;font-size:13px;color:var(--gris)}
+
+/* Cena */
+.wide-photo{position:relative;width:100%;aspect-ratio:342/330}
+.wide-photo::before{content:"";position:absolute;inset:-8px;border:1px solid var(--linea);border-radius:30px}
+.wide-photo .ph{position:absolute;inset:0;border-radius:24px;overflow:hidden;background:#F1E4E8}
+.wide-photo img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.gift{position:relative;width:100%;background:var(--rosa);border-radius:26px;padding:30px 22px;display:flex;flex-direction:column;align-items:center;gap:14px;box-shadow:inset 0 0 0 7px var(--rosa),inset 0 0 0 8px var(--malva)}
+.gift h3{font-family:var(--f-serif);font-size:28px;font-weight:600;line-height:1.15;color:var(--tinta)}
+.gift .pay{display:flex;gap:12px;align-items:flex-start;text-align:left;background:var(--papel);border-radius:16px;padding:16px}
+.gift .pay svg{flex-shrink:0}
+.gift .pay strong{font-weight:500;color:var(--tinta)}
+
+/* Vestimenta */
+.swatches{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;width:100%}
+.grupo{display:flex;align-items:center;gap:12px;width:100%;margin-top:8px;margin-bottom:-6px;font-size:11px;letter-spacing:.38em;text-transform:uppercase;color:var(--oro-osc)}
+.grupo::before,.grupo::after{content:"";flex:1;height:1px;background:var(--oro)}
+.sw{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0}
+.sw span{display:block;width:min(42px,11vw);aspect-ratio:1;border-radius:50%;background:var(--c);box-shadow:0 0 0 3px var(--fondo),0 0 0 4px var(--c)}
+.sw small{font-size:10px;line-height:1.2;color:var(--gris)}
+.strip{position:relative;width:100%;aspect-ratio:342/210}
+.strip .ph{position:absolute;inset:0;border-radius:24px;overflow:hidden;background:#F1E4E8}
+.strip img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
+
+/* Confirmación */
+.rsvp{position:relative;width:100%;background:var(--rosa);border-radius:26px;padding:30px 20px;display:flex;flex-direction:column;gap:18px;text-align:left;box-shadow:inset 0 0 0 7px var(--rosa),inset 0 0 0 8px var(--rosa-medio)}
+.rsvp-head{text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.rsvp-head .script{font-size:42px}
+.rsvp-head b{font-family:var(--f-serif);font-size:19px;font-weight:600;color:var(--tinta)}
+.rsvp-head small{font-size:12px;color:#5E4264}
+.cupo{margin-top:6px;padding:6px 14px;border-radius:999px;background:var(--papel);border:1px solid var(--oro);font-size:12.5px;color:var(--tinta)}
+.fg{display:flex;flex-direction:column;gap:8px;border:0;margin:0;padding:0;min-width:0}
+.fg label,.fg legend{font-size:13px;color:var(--tinta);padding:0}
+.fld{width:100%;min-height:48px;border:1px solid var(--linea);border-radius:14px;background:var(--papel);padding:0 16px;font:16px var(--f-sans);color:var(--texto)}
+.fld:focus{outline:1px solid var(--tinta);outline-offset:1px}
+.stepper{display:flex;align-items:center;justify-content:center;gap:24px}
+.step{all:unset;cursor:pointer;width:46px;height:46px;border-radius:50%;border:1px solid var(--tinta);display:flex;align-items:center;justify-content:center;color:var(--tinta);background:var(--papel)}
+.step:focus-visible{outline:1px solid var(--tinta);outline-offset:3px}
+.step:disabled{opacity:.35;cursor:default}
+.count{font-family:var(--f-sans);font-size:38px;font-weight:300;color:var(--tinta);min-width:40px;text-align:center;font-variant-numeric:tabular-nums}
+.pills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.pill{all:unset;cursor:pointer;min-height:48px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:14px;text-align:center;padding:0 10px;background:var(--papel);color:var(--tinta);border:1px solid var(--linea);transition:background .4s ease,color .4s ease,border-color .4s ease}
+.pill[aria-pressed="true"]{background:var(--tinta);color:var(--fondo);border-color:var(--tinta)}
+.pill:focus-visible{outline:1px solid var(--tinta);outline-offset:3px}
+.send{all:unset;cursor:pointer;width:100%;min-height:52px;border-radius:999px;background:var(--tinta);color:var(--fondo);display:flex;align-items:center;justify-content:center;font-size:12px;letter-spacing:.3em;text-transform:uppercase;box-sizing:border-box}
+.send:focus-visible{outline:1px solid var(--tinta);outline-offset:4px}
+.send[disabled]{opacity:.6;cursor:default}
+.err{font-size:13px;color:#8A2E4A;text-align:center;min-height:1em}
+.done{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:10px 0;animation:rise .9s var(--ease) both}
+.done .ck path{stroke-dasharray:60;stroke-dashoffset:60;animation:check .9s ease .3s forwards}
+@keyframes check{to{stroke-dashoffset:0}}
+.done b{font-family:var(--f-serif);font-size:26px;font-weight:500;color:var(--tinta)}
+.prev{font-size:12px;color:#5E4264;background:var(--papel);border-radius:10px;padding:8px 12px}
+.link-btn{all:unset;cursor:pointer;min-height:44px;padding:0 22px;border-radius:999px;border:1px solid var(--tinta);color:var(--tinta);display:inline-flex;align-items:center;font-size:14px}
+.link-btn:focus-visible{outline:1px solid var(--tinta);outline-offset:3px}
+
+/* Video */
+.final{width:calc(100% + 48px);margin-inline:-24px;background:var(--rosa);padding:64px 24px 72px;position:relative;display:flex;flex-direction:column;align-items:center;gap:26px}
+.final::before{content:"";position:absolute;inset:14px;border:1px solid var(--rosa-medio);pointer-events:none}
+.thanks{position:relative}
+.thanks .serif{font-style:italic;font-size:20px}
+.thanks .script{font-size:44px}
+
+/* Aparición al deslizar */
+.rv{transition:opacity 1.2s var(--ease),transform 1.2s var(--ease)}
+.rv.pre{opacity:0;transform:translateY(18px)}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .caida,.bfs{display:none}
+}
+</style>
+
+</head>
+<body>
+<!-- Definiciones compartidas: degradados, texturas y filtros -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gCuerpo" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#2A1E2E"/><stop offset=".45" stop-color="#6A4A71"/><stop offset="1" stop-color="#2A1E2E"/></linearGradient>
+    <symbol id="orn" viewBox="0 0 120 12">
+      <path d="M0 6 H50 M70 6 H120" stroke="#CDAE6C" stroke-width="1"/>
+      <path d="M60 1 L65 6 L60 11 L55 6 Z" fill="none" stroke="#B08D47" stroke-width="1"/>
+      <circle cx="60" cy="6" r="1.2" fill="#B08D47"/>
+    </symbol>
+    <!-- Sobre: rosa satinado -->
+    <linearGradient id="satIzq" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EDBDCD"/><stop offset=".32" stop-color="#F8DCE6"/><stop offset=".5" stop-color="#EFC2D1"/><stop offset=".74" stop-color="#F6D3DF"/><stop offset="1" stop-color="#E4AABF"/></linearGradient>
+    <linearGradient id="satDer" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EBB8C9"/><stop offset=".3" stop-color="#F5D2DE"/><stop offset=".52" stop-color="#FBE3EB"/><stop offset=".7" stop-color="#EEBFCF"/><stop offset="1" stop-color="#E2A7BC"/></linearGradient>
+    <linearGradient id="satAbajo" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#EEC1D0"/><stop offset=".38" stop-color="#FAE0E9"/><stop offset=".56" stop-color="#F1C7D5"/><stop offset=".8" stop-color="#F8D9E3"/><stop offset="1" stop-color="#ECBACB"/></linearGradient>
+    <linearGradient id="satSolapa" x1="0" y1="0" x2="1" y2=".7"><stop offset="0" stop-color="#E7B1C4"/><stop offset=".4" stop-color="#F6D4DF"/><stop offset=".55" stop-color="#FBE4EC"/><stop offset=".72" stop-color="#EDBACB"/><stop offset="1" stop-color="#E3A9BD"/></linearGradient>
+    <linearGradient id="brillo" x1="0" y1="0" x2="1" y2=".55"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".44" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".42"/><stop offset=".57" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <pattern id="grano" width="160" height="160" patternUnits="userSpaceOnUse"><image id="granoImg" width="160" height="160" href=""/></pattern>
+    <pattern id="lino" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="7.5" r="2.2" fill="#F7D9E3"/><circle cx="14.5" cy="11" r="2.2" fill="#F7D9E3"/><circle cx="11" cy="14.5" r="2.2" fill="#F7D9E3"/><circle cx="7.5" cy="11" r="2.2" fill="#F7D9E3"/><circle cx="11" cy="11" r="1" fill="#FFFAFB"/>
+    </pattern>
+
+    <!-- Sello de cera -->
+    <radialGradient id="ceraGrad" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#F4E2B4"/><stop offset=".42" stop-color="#D8B26C"/><stop offset=".82" stop-color="#AC8240"/><stop offset="1" stop-color="#83602B"/></radialGradient>
+    <linearGradient id="ceraHundido" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9A7334"/><stop offset=".55" stop-color="#C39D57"/><stop offset="1" stop-color="#E2C78C" stop-opacity="0"/></linearGradient>
+    <linearGradient id="ceraBorde" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6E4E1C"/><stop offset=".5" stop-color="#A88040"/><stop offset="1" stop-color="#FBEBC4"/></linearGradient>
+    <linearGradient id="ceraLetra" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7E6B8"/><stop offset="1" stop-color="#C29A52"/></linearGradient>
+    <filter id="cera" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2.6" result="b"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".55" numOctaves="2" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .16 0" result="na"/>
+      <feComposite in="b" in2="na" operator="arithmetic" k2="1" k3="1" result="bump"/>
+      <feDiffuseLighting in="bump" surfaceScale="3.4" diffuseConstant="1.08" lighting-color="#ffffff" result="dif"><feDistantLight azimuth="225" elevation="52"/></feDiffuseLighting>
+      <feComposite in="SourceGraphic" in2="dif" operator="arithmetic" k1="1" result="lit"/>
+      <feSpecularLighting in="bump" surfaceScale="3.4" specularConstant="1.05" specularExponent="26" lighting-color="#FFF6DC" result="spec"><fePointLight x="34" y="14" z="70"/></feSpecularLighting>
+      <feComposite in="spec" in2="SourceAlpha" operator="in" result="specIn"/>
+      <feComposite in="lit" in2="SourceAlpha" operator="in" result="litIn"/>
+      <feComposite in="litIn" in2="specIn" operator="arithmetic" k2="1" k3=".75"/>
+    </filter>
+    <filter id="grabado" x="-25%" y="-35%" width="150%" height="170%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation=".8" result="b"/>
+      <feSpecularLighting in="b" surfaceScale="2.8" specularConstant="1.15" specularExponent="16" lighting-color="#FFF5D8" result="s"><fePointLight x="40" y="22" z="40"/></feSpecularLighting>
+      <feComposite in="s" in2="SourceAlpha" operator="in" result="s2"/>
+      <feComposite in="SourceGraphic" in2="s2" operator="arithmetic" k2="1" k3=".85" result="t"/>
+      <feDropShadow in="t" dx=".7" dy="1" stdDeviation=".45" flood-color="#4A3410" flood-opacity=".75"/>
+    </filter>
+
+  </defs>
+</svg>
+
+<audio id="musica" src="media/brillas.mp3" preload="auto" loop></audio>
+
+<!-- ================= SOBRE ================= -->
+<div class="intro" id="intro" role="dialog" aria-modal="true" aria-label="Sobre de invitación">
+  <span class="marco" aria-hidden="true"></span>
+  <div class="racimo izq" aria-hidden="true"><img src="img/racimo_izq.png" alt=""></div>
+  <div class="racimo der" aria-hidden="true"><img src="img/racimo_der.png" alt=""></div>
+  <div class="caida" id="caida" aria-hidden="true"></div>
+
+  <div class="intro-in">
+    <div class="intro-txt">
+      <svg class="orn" width="120" height="12" aria-hidden="true"><use href="#orn"/></svg>
+      <p class="eyebrow" id="introPara" style="margin-top:6px">Para</p>
+      <p class="para-nombre" id="paraNombre">Ti, con mucho cariño</p>
+      <p class="intro-sub" id="introSub">Queremos invitarte a celebrar nuestra boda</p>
+    </div>
+
+    <div class="env-wrap" id="envWrap">
+      <button class="env" id="sobre" type="button" aria-label="Abrir la invitación">
+        <span class="pola a" aria-hidden="true"><img src="img/pola1.jpg" alt="" style="object-position:center 30%"><span>nosotros</span></span>
+        <span class="pola b" aria-hidden="true"><img src="img/pola2.jpg" alt="" style="object-position:center 60%"><span>para siempre</span></span>
+        <span class="pola c" aria-hidden="true"><img src="img/pola3.jpg" alt="" style="object-position:center 55%"><span>nuestro gran día</span></span>
+        <div class="env-back">
+          <svg viewBox="0 0 330 224" preserveAspectRatio="none" aria-hidden="true">
+            <rect width="330" height="224" fill="#E9B6C7"/>
+            <rect width="330" height="224" fill="url(#lino)" opacity=".8"/>
+            <rect width="330" height="224" fill="url(#grano)"/>
+          </svg>
+        </div>
+        <div class="env-card">
+          <div class="env-card-in">
+            <span class="k" id="cardK">Nos casamos</span>
+            <span class="n" id="cardNombres">Camilo &amp; Carolina</span>
+            <span class="d">11 · 12 · 2026</span>
+            <span class="lema">“Lo esencial es invisible a los ojos”</span>
+            <span class="lema-a"><svg width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"><path d="M5 0 L6 4 L10 5 L6 6 L5 10 L4 6 L0 5 L4 4 Z" fill="#B08A4A"/></svg>El Principito</span>
+          </div>
+        </div>
+        <div class="env-front">
+          <svg viewBox="0 0 330 224" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 0 L168 122 L0 224 Z" fill="url(#satIzq)"/>
+            <path d="M330 0 L162 122 L330 224 Z" fill="url(#satDer)"/>
+            <path d="M0 0 L168 122 L0 224 Z" fill="url(#brillo)" opacity=".7"/>
+            <path d="M0 224 L165 104 L330 224 Z" fill="#000" opacity=".06" transform="translate(0 -3)"/>
+            <path d="M0 224 L165 104 L330 224 Z" fill="url(#satAbajo)"/>
+            <path d="M0 224 L165 104 L330 224 Z" fill="url(#brillo)" opacity=".8"/>
+            <rect width="330" height="224" fill="url(#grano)"/>
+            <path d="M0 0 L168 122 M330 0 L162 122" stroke="#D99DB2" stroke-width=".9" fill="none" opacity=".8"/>
+            <path d="M1 1.5 L166 121 M329 1.5 L164 121" stroke="#FFF4F8" stroke-width=".7" fill="none" opacity=".8" transform="translate(0 1.4)"/>
+            <path d="M0 224 L165 104 L330 224" stroke="#D697AD" stroke-width="1" fill="none"/>
+            <path d="M2 222 L165 105.6 L328 222" stroke="#FFF2F6" stroke-width=".8" fill="none" opacity=".9" transform="translate(0 1.6)"/>
+            <path d="M20 216 L165 112 L310 216" stroke="#D99FB3" stroke-width=".7" stroke-dasharray="2 3.2" fill="none"/>
+            <rect x="6" y="6" width="318" height="212" rx="3" fill="none" stroke="#FFFFFF" stroke-opacity=".55" stroke-width=".8"/>
+          </svg>
+        </div>
+        <div class="flap">
+          <div class="face">
+            <svg viewBox="0 0 330 134" preserveAspectRatio="none" aria-hidden="true" style="overflow:visible;filter:drop-shadow(0 3px 3px rgba(122,70,96,.22))">
+              <path d="M0 0 H330 L170 129 Q165 133 160 129 Z" fill="url(#satSolapa)"/>
+              <path d="M0 0 H330 L170 129 Q165 133 160 129 Z" fill="url(#brillo)" opacity=".75"/>
+              <path d="M0 0 H330 L170 129 Q165 133 160 129 Z" fill="url(#grano)"/>
+              <path d="M14 6 H316 L165 123 Z" fill="none" stroke="#FCEAF0" stroke-width=".8"/>
+              <path d="M28 11 H302 L165 114 Z" fill="none" stroke="#D99FB3" stroke-width=".7" stroke-dasharray="2 3.2"/>
+            </svg>
+          </div>
+          <div class="face face-b">
+            <svg viewBox="0 0 330 134" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 134 H330 L165 2 Z" fill="#E9B6C7"/>
+              <path d="M0 134 H330 L165 2 Z" fill="url(#lino)" opacity=".8"/>
+              <path d="M0 134 H330 L165 2 Z" fill="url(#grano)"/>
+              <path d="M12 130 H318 L165 10 Z" fill="none" stroke="#FFFAFB" stroke-opacity=".6" stroke-width=".8"/>
+            </svg>
+          </div>
+        </div>
+        <div class="seal">
+          <svg viewBox="0 0 120 112" aria-hidden="true">
+            <image href="img/sello_ramitas.png" x="-4" y="26" width="128" height="85" preserveAspectRatio="xMidYMin meet"/>
+            <path class="cera-blob" d="" fill="url(#ceraGrad)" filter="url(#cera)"/>
+            <circle cx="60" cy="48" r="21.5" fill="url(#ceraHundido)" opacity=".9"/>
+            <circle cx="60" cy="48" r="21.5" fill="none" stroke="url(#ceraBorde)" stroke-width="1.8"/>
+            <circle cx="60" cy="48" r="17.6" fill="none" stroke="#7A5A22" stroke-width=".6" stroke-dasharray=".9 1.7" opacity=".85"/>
+            <circle cx="60" cy="48" r="17.6" fill="none" stroke="#FFF0C8" stroke-width=".4" stroke-dasharray=".9 1.7" opacity=".7" transform="translate(-.4 -.4)"/>
+            <text x="60.7" y="56.2" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="21" fill="#4F3712" opacity=".55">C&amp;C</text>
+            <text x="59.4" y="54.6" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="21" fill="#FFF3D2" opacity=".7">C&amp;C</text>
+            <text x="60" y="55.3" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="21" fill="url(#ceraLetra)" filter="url(#grabado)">C&amp;C</text>
+            <ellipse cx="46" cy="30" rx="9" ry="4.5" transform="rotate(-35 46 30)" fill="#fff" opacity=".24"/>
+          </svg>
+        </div>
+      </button>
+
+      <div class="flores base" aria-hidden="true"><img src="img/flores_izq.png" alt=""></div>
+      <div class="bfs" id="mariposas" aria-hidden="true"></div>
+    </div>
+
+    <div class="intro-cta">
+      <p class="hint" id="hint">Toca el sobre para abrirlo</p>
+      <p class="tip-fotos" id="tipFotos" hidden>Toca una foto para verla completa</p>
+      <button class="btn-ver" id="verInv" type="button" hidden>Ver invitación</button>
+    </div>
+  </div>
+</div>
+
+<div class="visor" id="visor" role="dialog" aria-modal="true" aria-label="Foto" hidden>
+  <button class="v-btn v-cerrar" id="vCerrar" type="button" aria-label="Cerrar foto"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <figure class="v-fig" id="vFig"><img id="vImg" src="img/pola1.jpg" alt=""><figcaption id="vCap"></figcaption></figure>
+  <button class="v-btn v-nav v-ant" id="vPrev" type="button" aria-label="Foto anterior"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <button class="v-btn v-nav v-sig" id="vNext" type="button" aria-label="Foto siguiente"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+</div>
+
+<div class="menu-visor" id="menuVisor" role="dialog" aria-modal="true" aria-labelledby="menuTit" hidden>
+  <div class="mv-top">
+    <div>
+      <p class="mv-k">Orquídea Restaurante Bar</p>
+      <h2 class="mv-t" id="menuTit">Menú</h2>
+    </div>
+    <button class="mv-cerrar" id="menuCerrar" type="button" aria-label="Cerrar menú"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <nav class="mv-chips" aria-label="Secciones del menú"><button class="mv-chip" type="button" data-p="1">Entradas</button><button class="mv-chip" type="button" data-p="2">Patacones</button><button class="mv-chip" type="button" data-p="3">Parrillas</button><button class="mv-chip" type="button" data-p="4">Hamburguesas</button><button class="mv-chip" type="button" data-p="5">Cócteles</button><button class="mv-chip" type="button" data-p="6">Postres</button><button class="mv-chip" type="button" data-p="7">Bebidas</button></nav>
+  <div class="mv-paginas" id="menuPaginas">
+    <img id="mp1" src="img/menu/menu-1.jpg" width="1100" height="1555" alt="Menú, página 1: entradas, pastas y menú infantil" loading="lazy">
+    <img id="mp2" src="img/menu/menu-2.jpg" width="1100" height="1555" alt="Menú, página 2: patacones y chuzopán" loading="lazy">
+    <img id="mp3" src="img/menu/menu-3.jpg" width="1100" height="1555" alt="Menú, página 3: parrillas y salmón" loading="lazy">
+    <img id="mp4" src="img/menu/menu-4.jpg" width="1100" height="1555" alt="Menú, página 4: hamburguesas y maicitos" loading="lazy">
+    <img id="mp5" src="img/menu/menu-5.jpg" width="1100" height="1555" alt="Menú, página 5: cócteles" loading="lazy">
+    <img id="mp6" src="img/menu/menu-6.jpg" width="1100" height="1555" alt="Menú, página 6: cócteles, cócteles sin alcohol y postres" loading="lazy">
+    <img id="mp7" src="img/menu/menu-7.jpg" width="1100" height="1555" alt="Menú, página 7: frappés, sodas, jugos, bebidas y licores" loading="lazy">
+    <p class="mv-nota">Cada invitado paga su propio plato. Puedes ampliar el menú con dos dedos.</p>
+  </div>
+</div>
+
+<div class="padrinos" id="padrinos" role="dialog" aria-modal="true" aria-labelledby="padTit" hidden>
+  <div class="bfs op" id="padBf" aria-hidden="true"></div>
+  <div class="pad-carta">
+    <svg class="orn" width="120" height="12" aria-hidden="true"><use href="#orn"/></svg>
+    <p class="pad-k">Una carta para</p>
+    <h2 class="pad-t" id="padTit">Nuestros padrinos</h2>
+    <p class="pad-n">Byron &amp; Oriana</p>
+    <p>Hay personas que Dios pone en nuestro camino para enseñarnos lo que es el amor de verdad. Para nosotros, ustedes son esas personas.</p>
+    <p>Gracias por aceptar ser nuestros padrinos y por caminar a nuestro lado en el comienzo de esta nueva historia. Su ejemplo, su cariño y su compañía son un regalo que guardaremos siempre.</p>
+    <p class="pad-f">Con todo nuestro amor,<br><span>Camilo y Carolina</span></p>
+    <button class="btn-ver show" id="padSeguir" type="button">Ver la invitación</button>
+  </div>
+</div>
+
+<button class="mus" id="btnMusica" type="button" aria-label="Pausar la música">
+  <span class="bar" style="animation-delay:0s"></span><span class="bar" style="animation-delay:.3s"></span><span class="bar" style="animation-delay:.6s"></span><span class="bar" style="animation-delay:.15s"></span>
+</button>
+
+<!-- ================= INVITACIÓN ================= -->
+<main class="page" id="inv">
+
+  <section class="hero" aria-label="Portada">
+    <div class="arch">
+      <div class="arch-photo"><img src="img/sombrilla.jpg" alt="Carolina y Camilo en el campo, ella con una sombrilla, al atardecer"></div>
+      <img class="arch-marco" src="img/arco.png" alt="" aria-hidden="true">
+      <div class="arch-sello" aria-hidden="true">
+          <svg viewBox="0 0 120 112">
+            <path class="cera-blob" d="" fill="url(#ceraGrad)" filter="url(#cera)"/>
+            <circle cx="60" cy="48" r="21.5" fill="url(#ceraHundido)" opacity=".9"/>
+            <circle cx="60" cy="48" r="21.5" fill="none" stroke="url(#ceraBorde)" stroke-width="1.8"/>
+            <circle cx="60" cy="48" r="17.6" fill="none" stroke="#7A5A22" stroke-width=".6" stroke-dasharray=".9 1.7" opacity=".85"/>
+            <circle cx="60" cy="48" r="17.6" fill="none" stroke="#FFF0C8" stroke-width=".4" stroke-dasharray=".9 1.7" opacity=".7" transform="translate(-.4 -.4)"/>
+            <text x="60.7" y="56.2" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="21" fill="#4F3712" opacity=".55">C&amp;C</text>
+            <text x="59.4" y="54.6" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="21" fill="#FFF3D2" opacity=".7">C&amp;C</text>
+            <text x="60" y="55.3" text-anchor="middle" font-family="Pinyon Script, cursive" font-size="21" fill="url(#ceraLetra)" filter="url(#grabado)">C&amp;C</text>
+            <ellipse cx="46" cy="30" rx="9" ry="4.5" transform="rotate(-35 46 30)" fill="#fff" opacity=".24"/>
+          </svg>
+      </div>
+      <span class="posa" data-bf="uva,54,16,34%,-46px,auto,auto" aria-hidden="true"></span>
+      <span class="posa" data-bf="lila,44,-22,58%,auto,auto,-44px" aria-hidden="true"></span>
+    </div>
+
+    <div class="names">
+      <h1 class="sr-only">Boda de Camilo y Carolina</h1>
+      <blockquote class="cita">
+        <p>Hoy la tierra y los cielos me sonríen;<br>hoy llega al fondo de mi alma el sol;<br>hoy la he visto…, la he visto y me ha mirado…<br>¡Hoy creo en Dios!</p>
+        <cite>Gustavo Adolfo Bécquer<br>Rima XVII</cite>
+      </blockquote>
+      <svg class="orn" width="120" height="12" style="margin:22px 0 14px" aria-hidden="true"><use href="#orn"/></svg>
+      <p class="fullnames">Camilo Andrés Hernández Pérez<br>Astrid Carolina Torrado Remolina</p>
+    </div>
+
+    <div class="datebar" aria-label="Viernes 11 de diciembre de 2026, 6:00 p.m.">
+      <span class="side">Viernes</span>
+      <span class="mid"><small>Diciembre</small><b>11</b><small>2026</small></span>
+      <span class="side">6:00 p.m.</span>
+    </div>
+
+    <div class="cd rv" aria-label="Cuenta regresiva para la boda">
+      <span class="posa" data-bf="rosa,50,-14,-6px,22px,auto,auto" aria-hidden="true"></span>
+      <span class="script">Faltan</span>
+      <div class="cd-grid" id="cuenta">
+        <div class="cd-u"><b data-u="d">--</b><small>Días</small></div>
+        <div class="cd-u"><b data-u="h">--</b><small>Horas</small></div>
+        <div class="cd-u"><b data-u="m">--</b><small>Min</small></div>
+        <div class="cd-u"><b data-u="s">--</b><small>Seg</small></div>
+      </div>
+      <p id="cdTxt">para decir “sí, acepto”</p>
+    </div>
+    <a class="btn cal rv" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Boda%20de%20Camilo%20y%20Carolina&amp;dates=20261211T180000/20261211T220000&amp;ctz=America/Bogota&amp;details=Ceremonia%20religiosa%3A%206%3A00%20p.m.%20en%20punto%20en%20la%20Parroquia%20Sagrado%20Coraz%C3%B3n%20de%20Jes%C3%BAs.%0ACena%20de%20acompa%C3%B1amiento%3A%208%3A00%20p.m.%20en%20Orqu%C3%ADdea%20Restaurante%20Bar%20%28cada%20invitado%20paga%20su%20plato%29.%0A%0AC%C3%B3mo%20llegar%20a%20la%20iglesia%3A%20https%3A//maps.app.goo.gl/x7WDcetp5SvSbBBn8%0AC%C3%B3mo%20llegar%20al%20restaurante%3A%20https%3A//maps.app.goo.gl/nhhNhrEaU5xLL9dz7&amp;location=Parroquia%20Sagrado%20Coraz%C3%B3n%20de%20Jes%C3%BAs%2C%20C%C3%BAcuta" target="_blank" rel="noopener">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M12 13.2v4.6M9.7 15.5h4.6"/></svg>
+      Guardar en Google Calendar
+    </a>
+  </section>
+
+  <section aria-labelledby="t-ceremonia">
+    <div class="oval rv">
+      <div class="ph"><img src="img/manos.jpg" alt="Las manos de Carolina y Camilo unidas, con el anillo de compromiso" loading="lazy"></div>
+      <span class="posa" data-bf="lila,54,-22,-26px,auto,auto,30%" aria-hidden="true"></span>
+    </div>
+    <svg class="icono-iglesia rv" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#B08D47" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M32 3 V13 M27.5 7.5 H36.5"/>
+      <path d="M24 26 L32 14 L40 26"/>
+      <path d="M24 26 V58 H40 V26"/>
+      <path d="M10 58 V37 L24 30 M54 58 V37 L40 30"/>
+      <path d="M28.5 58 V49 a3.5 3.5 0 0 1 7 0 V58"/>
+      <circle cx="32" cy="35" r="3.2"/>
+      <path d="M15 44 v6 M49 44 v6"/>
+      <path d="M5 58 H59"/>
+    </svg>
+    <p class="eyebrow rv">Ceremonia religiosa</p>
+    <svg class="orn" width="120" height="12" aria-hidden="true"><use href="#orn"/></svg>
+    <h2 class="place rv" id="t-ceremonia">Parroquia Sagrado<br>Corazón de Jesús</h2>
+    <div class="hour rv"><b>6:00 p.m.</b><small>Viernes 11 de diciembre</small></div>
+
+    <div class="note rv">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4E3654" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2"/><path d="M10 2h4"/></svg>
+      <div>
+        <strong>Te esperamos puntualmente</strong>
+        <p>La ceremonia comenzará a las 6:00 p.m. en punto. Tu puntualidad es muy importante para nosotros: queremos que vivas con nosotros cada momento, desde la entrada de la novia.</p>
+      </div>
+    </div>
+
+    <div class="map rv" id="mapa">
+      <svg viewBox="0 0 342 300" role="img" aria-label="Mapa ilustrado con la ruta hacia la Parroquia Sagrado Corazón de Jesús">
+        <rect width="342" height="300" fill="#F8ECEF"/>
+        <rect x="20" y="20" width="90" height="70" rx="8" fill="#F2DCE3"/><rect x="130" y="20" width="70" height="110" rx="8" fill="#F2DCE3"/><rect x="220" y="20" width="100" height="60" rx="8" fill="#F2DCE3"/><rect x="20" y="110" width="90" height="90" rx="8" fill="#F2DCE3"/><rect x="220" y="100" width="100" height="100" rx="8" fill="#E2E7DE"/><rect x="20" y="220" width="180" height="60" rx="8" fill="#F2DCE3"/><rect x="220" y="220" width="100" height="60" rx="8" fill="#F2DCE3"/>
+        <circle cx="244" cy="124" r="6" fill="#D3DCCD"/><circle cx="300" cy="180" r="8" fill="#D3DCCD"/><circle cx="236" cy="184" r="5" fill="#D3DCCD"/>
+        <path d="M0 100 H342 M0 210 H342 M120 0 V300 M210 0 V300" stroke="#FFFDFB" stroke-width="12"/>
+        <path id="ruta" class="route" d="M10 210 H120 V100 H210 V150 H262" fill="none" stroke="#7A5781" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle class="ripple" cx="270" cy="150" r="6" fill="#E5B3C3"/>
+        <g class="pin"><path d="M270 152 c-10-12-16-20-16-28 a16 16 0 0 1 32 0 c0 8-6 16-16 28z" fill="#4E3654"/><circle cx="270" cy="124" r="6" fill="#F4D0DC"/></g>
+      </svg>
+      <span class="map-tag">Parroquia Sagrado Corazón de Jesús<br>Cúcuta</span>
+    </div>
+    <div class="btns rv">
+      <a class="btn solid" href="https://maps.app.goo.gl/x7WDcetp5SvSbBBn8" target="_blank" rel="noopener">Google Maps</a>
+      <a class="btn" href="https://waze.com/ul?ll=7.8895683,-72.4895686&amp;navigate=yes" target="_blank" rel="noopener">Waze</a>
+    </div>
+
+    <div class="timeline rv" style="margin-top:18px">
+      <p class="eyebrow" style="text-align:center;margin-bottom:16px">El plan del día</p>
+      <div class="tl"><i aria-hidden="true"></i><div><strong>6:00 p.m. · Ceremonia</strong><span>Parroquia Sagrado Corazón de Jesús</span></div></div>
+      <div class="tl"><i aria-hidden="true"></i><div><strong>8:00 p.m. · Cena</strong><span>Orquídea Restaurante Bar</span></div></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-cena">
+    <div class="wide-photo rv"><div class="ph"><img src="img/atardecer.jpg" alt="Carolina y Camilo de la mano frente a las montañas al atardecer" loading="lazy"></div></div>
+    <p class="eyebrow rv" style="margin-top:12px">Después de la ceremonia</p>
+    <h2 class="script rv" id="t-cena" style="font-size:42px">Cena de acompañamiento</h2>
+    <svg class="orn" width="120" height="12" aria-hidden="true"><use href="#orn"/></svg>
+    <p class="serif rv" style="font-size:24px;font-weight:500">Orquídea Restaurante Bar</p>
+    <p class="serif rv" style="font-size:40px;font-weight:500;line-height:1.1">8:00 p.m.</p>
+    <p class="lead rv">No habrá fiesta: queremos celebrar en un ambiente íntimo, compartiendo una cena tranquila con las personas que más queremos.</p>
+    <div class="btns rv">
+      <button class="btn solid" id="btnMenu" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11a3 3 0 0 1 3 3v15H8a3 3 0 0 1-3-3z"/><path d="M5 18a3 3 0 0 1 3-3h11"/><path d="M9 7h6M9 10.5h4"/></svg>
+        Ver menú
+      </button>
+      <a class="btn" href="https://maps.app.goo.gl/nhhNhrEaU5xLL9dz7" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        Cómo llegar
+      </a>
+    </div>
+
+    <div class="gift rv" style="margin-top:14px">
+      <span class="posa" data-bf="uva,52,-18,-16px,auto,auto,26px" aria-hidden="true"></span>
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4E3654" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-9.3-8.6C1 8 3 4 6.8 4c2.1 0 3.4 1.1 4.2 2.3h2C13.8 5.1 15.1 4 17.2 4 21 4 23 8 21.3 11.4 19 15.6 12 20 12 20z"/></svg>
+      <h3>Tu presencia es<br>nuestro mejor regalo</h3>
+      <p class="lead">No esperamos regalos y no existe ningún compromiso de traer uno.</p>
+      <svg width="80" height="10" viewBox="0 0 120 12" aria-hidden="true"><use href="#orn"/></svg>
+      <div class="pay">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4E3654" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="8.5"/><path d="M1.5 3v5a2 2 0 0 0 2 2V21"/><path d="M22.5 3v18"/><path d="M22.5 3c-1.5 1-2 3-2 5s.8 3 2 3"/></svg>
+        <p><strong>Sobre la cena:</strong> si nos acompañas, cada invitado cubre el valor de su propio plato directamente en el restaurante.</p>
+      </div>
+      <p class="serif" style="font-style:italic;font-size:19px">Lo único que te pedimos es tu compañía.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-vest">
+    <p class="eyebrow">Código de vestimenta</p>
+    <h2 class="serif rv" id="t-vest" style="font-size:30px;font-weight:500;line-height:1.2">Formal, en los colores<br>de nuestra boda</h2>
+    <p class="grupo rv">Ellas</p>
+    <div class="swatches rv">
+      <div class="sw"><span style="--c:#7A5781"></span><small>Uva</small></div>
+      <div class="sw"><span style="--c:#997179"></span><small>Malva</small></div>
+      <div class="sw"><span style="--c:#BC95B4"></span><small>Lila</small></div>
+      <div class="sw"><span style="--c:#CEAFB4"></span><small>Rosa viejo</small></div>
+      <div class="sw"><span style="--c:#D6C2A3"></span><small>Arena</small></div>
+      <div class="sw"><span style="--c:#F4D0DC"></span><small>Rosa</small></div>
+    </div>
+    <p class="grupo rv">Ellos</p>
+    <div class="swatches rv">
+      <div class="sw"><span style="--c:#DCCDAF"></span><small>Beige</small></div>
+      <div class="sw"><span style="--c:#BBA77E"></span><small>Caqui</small></div>
+      <div class="sw"><span style="--c:#B88E5F"></span><small>Camel</small></div>
+      <div class="sw"><span style="--c:#8C7556"></span><small>Marrón caqui</small></div>
+      <div class="sw"><span style="--c:#8E8173"></span><small>Taupe</small></div>
+      <div class="sw"><span style="--c:#6B4A35"></span><small>Café</small></div>
+    </div>
+    <p class="serif rv" style="font-style:italic;font-size:18px">El blanco lo reservamos para la novia.</p>
+    <div class="strip rv" style="margin-top:10px">
+      <div class="ph"><img src="img/cactus.jpg" alt="Carolina y Camilo tomados de la mano junto a un cactus" loading="lazy"></div>
+      <span class="posa" data-bf="viejo,48,-14,-14px,8%,auto,auto" aria-hidden="true"></span>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-rsvp" id="confirmar">
+    <div class="rsvp rv">
+      <span class="posa" data-bf="malva,50,14,-16px,24px,auto,auto" aria-hidden="true"></span>
+      <div class="rsvp-head">
+        <h2 class="script" id="t-rsvp">¿Nos acompañas?</h2>
+        <b>Confirma antes del 15 de noviembre</b>
+        <small id="rsvpSub">Pasada esta fecha, el formulario se cerrará.</small>
+        <p class="cupo" id="cupoTxt" hidden></p>
+      </div>
+
+      <form id="form" novalidate style="display:flex;flex-direction:column;gap:18px">
+        <div class="fg">
+          <label for="nombre">Nombre completo</label>
+          <input id="nombre" name="nombre" class="fld" type="text" autocomplete="name" placeholder="Ej: Familia Torres" maxlength="80">
+        </div>
+        <div class="fg" id="fgPersonas">
+          <span id="lbl-personas" style="font-size:13px;color:var(--tinta)">¿Cuántas personas asistirán? (contándote)</span>
+          <div class="stepper" role="group" aria-labelledby="lbl-personas">
+            <button class="step" id="menos" type="button" aria-label="Quitar una persona"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+            <output class="count" id="personas" aria-live="polite">1</output>
+            <button class="step" id="mas" type="button" aria-label="Agregar una persona"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></button>
+          </div>
+        </div>
+        <fieldset class="fg">
+          <legend>¿Asistirás a la ceremonia?</legend>
+          <div class="pills" data-group="asiste">
+            <button class="pill" type="button" data-v="si" aria-pressed="false">Sí, ahí estaré</button>
+            <button class="pill" type="button" data-v="no" aria-pressed="false">No podré ir</button>
+          </div>
+        </fieldset>
+        <fieldset class="fg" id="fgCena">
+          <legend>¿Nos acompañas también a la cena? (cada quien paga su plato)</legend>
+          <div class="pills" data-group="cena">
+            <button class="pill" type="button" data-v="si" aria-pressed="false">Sí, a la cena</button>
+            <button class="pill" type="button" data-v="no" aria-pressed="false">Solo ceremonia</button>
+          </div>
+        </fieldset>
+        <p class="err" id="err" role="alert"></p>
+        <button class="send" id="enviar" type="submit">Confirmar asistencia</button>
+      </form>
+
+      <div class="done" id="done" hidden>
+        <svg class="ck" width="68" height="68" viewBox="0 0 72 72" fill="none" aria-hidden="true"><circle cx="36" cy="36" r="34" fill="#FFFDFB" stroke="#4E3654" stroke-width="1"/><path d="M23 37l9 9 18-19" stroke="#4E3654" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <b id="doneTitle">¡Gracias!</b>
+        <p id="doneTxt"></p>
+        <p class="prev" id="prevNote" hidden>Vista previa: en la web publicada esta respuesta quedará guardada en la hoja de confirmaciones.</p>
+        <button class="link-btn" id="editar" type="button">Editar respuesta</button>
+      </div>
+
+      <div class="done" id="cerrado" hidden>
+        <b>Confirmaciones cerradas</b>
+        <p>El plazo para confirmar terminó el 15 de noviembre. Si tienes alguna duda, escríbenos directamente.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="t-final">
+    <div class="thanks rv" style="display:flex;flex-direction:column;align-items:center;gap:4px">
+      <span class="posa" data-bf="lila,46,12,-4px,6px,auto,auto" aria-hidden="true"></span>
+      <p class="serif">Gracias por ser parte de nuestra historia</p>
+      <h2 class="script" id="t-final">Camilo &amp; Carolina</h2>
+      <svg class="orn" width="120" height="12" aria-hidden="true"><use href="#orn"/></svg>
+      <p style="margin-top:4px;font-size:11px;letter-spacing:.36em;color:#5E4264">11 · 12 · 2026</p>
+    </div>
+  </section>
+</main>
+
+<script src="config.js"></script>
+<script>
+(function(){
+  /* ===== Configuración ===== */
+  var BODA = Date.UTC(2026, 11, 11, 23, 0, 0);          // 11 dic 2026, 6:00 p.m. Colombia
+  var CIERRE = Date.UTC(2026, 10, 16, 4, 59, 59);       // 15 nov 2026, 11:59 p.m. Colombia
+  var HOJA_URL = (window.CONFIG && /^https:\/\/script\.google\.com\//.test(window.CONFIG.HOJA_URL || '')) ? window.CONFIG.HOJA_URL : '';  // se configura en config.js
+  var MAPA_EMBED = 'https://maps.google.com/maps?q=7.8895683,-72.4895686&z=17&output=embed';
+  var enVistaPrevia = (function(){ try { return window.self !== window.top; } catch(e){ return true; } })();
+
+  var $ = function(id){ return document.getElementById(id); };
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var rnd = function(a, b){ return a + Math.random() * (b - a); };
+  function semilla(s){ return function(){ s |= 0; s = s + 0x6D2B79F5 | 0; var t = Math.imul(s ^ s >>> 15, 1 | s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  function f(n){ return Math.round(n * 10) / 10; }
+  document.documentElement.classList.add('locked');
+
+  /* ===== Textura del papel (grano y fibras) ===== */
+  try {
+    var cv = document.createElement('canvas'); cv.width = cv.height = 160;
+    var cx = cv.getContext('2d'), im = cx.createImageData(160, 160), dd = im.data;
+    for (var i = 0; i < dd.length; i += 4) {
+      var claro = Math.random() > .5;
+      dd[i] = claro ? 255 : 150; dd[i+1] = claro ? 255 : 105; dd[i+2] = claro ? 255 : 125;
+      dd[i+3] = Math.random() * (claro ? 34 : 20);
+    }
+    cx.putImageData(im, 0, 0);
+    for (var k = 0; k < 90; k++) {
+      cx.strokeStyle = Math.random() > .5 ? 'rgba(255,255,255,.28)' : 'rgba(170,110,135,.12)';
+      cx.lineWidth = .5; cx.beginPath();
+      var x0 = Math.random() * 160, y0 = Math.random() * 160, a = Math.random() * Math.PI, l = 4 + Math.random() * 10;
+      cx.moveTo(x0, y0); cx.quadraticCurveTo(x0 + Math.cos(a) * l / 2 + 2, y0 + Math.sin(a) * l / 2, x0 + Math.cos(a) * l, y0 + Math.sin(a) * l); cx.stroke();
+    }
+    $('granoImg').setAttribute('href', cv.toDataURL('image/png'));
+  } catch(e){}
+
+  /* ===== Sello de cera: borde irregular con gotas ===== */
+  (function(){
+    var r = semilla(11), n = 18, pts = [];
+    for (var i = 0; i < n; i++) {
+      var ang = i / n * Math.PI * 2, rad = 31 * (1 + (r() - .5) * .09);
+      if (i === 4) rad *= 1.13; if (i === 11) rad *= 1.09; if (i === 15) rad *= 1.06;
+      pts.push([60 + Math.cos(ang) * rad, 48 + Math.sin(ang) * rad]);
+    }
+    var d = 'M' + f(pts[0][0]) + ' ' + f(pts[0][1]);
+    for (var j = 0; j < n; j++) {
+      var p0 = pts[(j - 1 + n) % n], p1 = pts[j], p2 = pts[(j + 1) % n], p3 = pts[(j + 2) % n];
+      d += ' C' + f(p1[0] + (p2[0] - p0[0]) / 6) + ' ' + f(p1[1] + (p2[1] - p0[1]) / 6) + ' ' + f(p2[0] - (p3[0] - p1[0]) / 6) + ' ' + f(p2[1] - (p3[1] - p1[1]) / 6) + ' ' + f(p2[0]) + ' ' + f(p2[1]);
+    }
+    document.querySelectorAll('.cera-blob').forEach(function(el){ el.setAttribute('d', d + 'Z'); });
+  })();
+
+  /* ===== Hojas de eucalipto que caen del racimo ===== */
+  var caida = $('caida'), activas = 0, cayendo = !reduce, relojHojas = null;
+  function soltarHoja(){
+    if (!cayendo || activas > 11) return;
+    var izq = Math.random() < .62, vw = window.innerWidth, vh = window.innerHeight;
+    var x0 = izq ? rnd(16, Math.min(180, vw * .46)) : vw - rnd(16, Math.min(130, vw * .34)), y0 = rnd(20, 110);
+    var el = document.createElement('img'); el.className = 'hoja'; el.alt = '';
+    el.src = 'img/hoja' + (1 + Math.floor(Math.random() * 4)) + '.png';
+    el.style.setProperty('--h', rnd(20, 32) + 'px');
+    caida.appendChild(el); activas++;
+    var dur = rnd(9000, 14000), amp = rnd(30, 75) * (izq ? 1 : -1), deriva = rnd(20, 90) * (izq ? 1 : -1), fase = rnd(0, 6);
+    var giro0 = rnd(-40, 40), kf = [];
+    for (var s = 0; s <= 6; s++) {
+      var t = s / 6;
+      kf.push({
+        offset: t,
+        transform: 'translate(' + f(x0 + deriva * t + Math.sin(fase + t * 7) * amp) + 'px,' + f(y0 + t * (vh + 80)) + 'px) rotate(' + f(giro0 + Math.sin(fase + t * 7) * 55 + t * 90) + 'deg) rotateX(' + f(t * rnd(200, 420)) + 'deg) rotateY(' + f(Math.sin(fase + t * 5) * 50) + 'deg)',
+        opacity: s === 0 ? 0 : (s === 6 ? 0 : 1),
+        easing: 'ease-in-out'
+      });
+    }
+    var an = el.animate(kf, { duration: dur, fill: 'both' });
+    an.onfinish = function(){ el.remove(); activas--; };
+  }
+  if (cayendo) { setTimeout(soltarHoja, 600); setTimeout(soltarHoja, 1500); relojHojas = setInterval(soltarHoja, 1300); }
+
+  /* ===== Invitados: cada uno recibe su link personal (…/?i=codigo) ===== */
+  var INVITADOS = {
+    'byron-oriana': { n: 'Byron y Oriana', cupo: 2, lado: 'Novio', padrinos: true },
+    'carlos': { n: 'Carlos', cupo: 1, lado: 'Novio' },
+    'laura': { n: 'Laura', cupo: 1, lado: 'Novio' },
+    'daniel-valencia': { n: 'Daniel Valencia', cupo: 1, lado: 'Novio' },
+    'nicolas-ospina': { n: 'Nicolás Ospina', cupo: 1, lado: 'Novio' },
+    'karla-puerto': { n: 'Karla Puerto', cupo: 2, lado: 'Novio' },
+    'angel': { n: 'Ángel', cupo: 1, lado: 'Novio' },
+    'fredy': { n: 'Fredy', cupo: 3, lado: 'Novio' },
+    'dayana': { n: 'Dayana', cupo: 1, lado: 'Novio' },
+    'angie': { n: 'Angie', cupo: 1, lado: 'Novio' },
+    'ingrid': { n: 'Ingrid', cupo: 1, lado: 'Novio' },
+    'esly': { n: 'Esly', cupo: 1, lado: 'Novio' },
+    'estefany': { n: 'Estefany', cupo: 1, lado: 'Novio' },
+    'heidy': { n: 'Heidy', cupo: 1, lado: 'Novio' },
+    'jeldin': { n: 'Jeldin', cupo: 1, lado: 'Novio' },
+    'karina': { n: 'Karina', cupo: 2, lado: 'Novio' },
+    'vanessa': { n: 'Vanessa', cupo: 2, lado: 'Novio' },
+    'marisol': { n: 'Marisol', cupo: 1, lado: 'Novia' },
+    'alexandra': { n: 'Alexandra', cupo: 2, lado: 'Novia' },
+    'monica': { n: 'Mónica', cupo: 4, lado: 'Novia' },
+    'leidy': { n: 'Leidy', cupo: 1, lado: 'Novia' },
+    'maria-monica': { n: 'María Mónica', cupo: 1, lado: 'Novia' },
+    'mariana-julian': { n: 'Mariana y Julián', cupo: 2, lado: 'Novia' },
+    'camilo': { n: 'Camilo', cupo: 3, lado: 'Novia' },
+    'heber': { n: 'Heber', cupo: 3, lado: 'Novia' },
+    'juliana': { n: 'Juliana', cupo: 1, lado: 'Novia' },
+    'johana': { n: 'Johana', cupo: 1, lado: 'Novia' },
+    'kathe': { n: 'Kathe', cupo: 2, lado: 'Novia' },
+    'francy': { n: 'Francy', cupo: 4, lado: 'Novia' },
+    'papa-william': { n: 'Papá William', cupo: 1, lado: 'Novia' },
+    'lorena-urena': { n: 'Lorena Ureña', cupo: 4, lado: 'Novia' },
+    'primo-juan-carlos': { n: 'Primo Juan Carlos', cupo: 2, lado: 'Novia' }
+  };
+  var codigo = '';
+  try { codigo = (new URLSearchParams(location.search).get('i') || location.hash.slice(1) || '').toLowerCase().trim(); } catch(e){}
+  var INV = Object.prototype.hasOwnProperty.call(INVITADOS, codigo) ? INVITADOS[codigo] : null;
+  if (!INV) codigo = '';
+  var CUPO = INV ? INV.cupo : 2;
+  var invitado = INV ? INV.n : '';
+  if (INV) {
+    $('paraNombre').textContent = INV.n;
+    $('nombre').value = INV.n;
+    $('introSub').textContent = INV.cupo > 1 ? 'Queremos invitarlos a celebrar nuestra boda' : 'Queremos invitarte a celebrar nuestra boda';
+    if (INV.padrinos) {
+      $('introPara').textContent = 'Para nuestros queridos padrinos';
+      $('introSub').textContent = 'Con ustedes a nuestro lado, este día será aún más especial';
+      $('cardK').textContent = 'Nuestros padrinos';
+    }
+  }
+
+  /* ===== Música ===== */
+  var audio = $('musica'), btnM = $('btnMusica');
+  function pintarMusica(){ var on = !audio.paused; btnM.classList.toggle('on', on); btnM.setAttribute('aria-label', on ? 'Pausar la música' : 'Reproducir la música'); }
+  audio.addEventListener('play', pintarMusica); audio.addEventListener('pause', pintarMusica);
+  btnM.addEventListener('click', function(){ if (audio.paused) { audio.play().catch(function(){}); } else { audio.pause(); } });
+
+  /* ===== Mariposas ===== */
+  var TONOS = {
+    oro:   ['#FFF3D6', '#D9B46C', '#8C6A2A'],
+    uva:   ['#D9C3DD', '#8F6A97', '#4E3654'],
+    lila:  ['#F1E4EF', '#BC95B4', '#6E4C75'],
+    rosa:  ['#FDEEF3', '#EBAFC3', '#8E5F70'],
+    viejo: ['#F6EAEC', '#CEAFB4', '#7E5E66'],
+    malva: ['#E6CFD3', '#A87E87', '#4E3654']
+  };
+  var nBf = 0;
+  function ala(t, id){
+    var c = t[0], m = t[1], o = t[2];
+    return '<svg viewBox="0 0 52 80" aria-hidden="true">' +
+      '<defs>' +
+        '<radialGradient id="ga'+id+'" cx="4%" cy="42%" r="105%"><stop offset="0" stop-color="'+c+'"/><stop offset=".55" stop-color="'+m+'"/><stop offset="1" stop-color="'+o+'"/></radialGradient>' +
+        '<radialGradient id="gb'+id+'" cx="4%" cy="10%" r="110%"><stop offset="0" stop-color="'+c+'"/><stop offset=".6" stop-color="'+m+'"/><stop offset="1" stop-color="'+o+'"/></radialGradient>' +
+      '</defs>' +
+      '<path d="M1 37 C12 37 28 38 36 44 C42 49 41 58 36 64 C32 70 26 76 20 76 C14 76 9 70 6 62 C3 54 1 46 1 37 Z" fill="url(#gb'+id+')" stroke="'+o+'" stroke-width=".7"/>' +
+      '<path d="M2 39 C12 44 20 52 26 66 M2 40 C14 42 26 46 34 52 M2 42 C8 52 12 62 15 72 M2 39 C16 40 28 42 37 47" stroke="'+o+'" stroke-width=".45" fill="none" opacity=".55"/>' +
+      '<path d="M36 44 C42 49 41 58 36 64 C32 70 26 76 20 76 L20 72.5 C25 71.5 30 67 33 62 C37 56 37.5 50 33.5 46.5 Z" fill="'+o+'" opacity=".9"/>' +
+      '<g fill="#FFFAFB" opacity=".9"><circle cx="37.6" cy="52" r=".9"/><circle cx="37" cy="58.5" r=".9"/><circle cx="33.5" cy="65" r=".9"/><circle cx="27.5" cy="70.5" r=".9"/><circle cx="22" cy="73.8" r=".8"/></g>' +
+      '<circle cx="24" cy="59" r="4.4" fill="'+o+'"/><circle cx="24" cy="59" r="3" fill="'+c+'"/><circle cx="24" cy="59" r="1.5" fill="'+o+'"/><circle cx="23.2" cy="58.2" r=".55" fill="#FFFAFB"/>' +
+      '<path d="M1 31 C6 18 20 6 38 3 C44 2 49 5 50 10 C51 18 44 28 34 34 C24 39 10 38 1 36 Z" fill="url(#ga'+id+')" stroke="'+o+'" stroke-width=".7"/>' +
+      '<path d="M2 32 C14 26 26 16 37 6 M3 33 C18 30 32 24 44 15 M4 34 C18 33 28 31 38 27 M2 31 C10 22 20 12 30 6 M4 35 C14 36 24 35 32 32" stroke="'+o+'" stroke-width=".45" fill="none" opacity=".55"/>' +
+      '<path d="M38 3 C44 2 49 5 50 10 C51 18 44 28 34 34 L31.5 31 C40 25 45.5 17.5 45 11.5 C44.5 7.5 41.5 6 36 6.5 Z" fill="'+o+'" opacity=".9"/>' +
+      '<g fill="#FFFAFB" opacity=".9"><circle cx="43" cy="5.6" r=".85"/><circle cx="47.2" cy="9.8" r=".9"/><circle cx="46.8" cy="16" r=".9"/><circle cx="43.2" cy="22.5" r=".9"/><circle cx="38.6" cy="28" r=".85"/><circle cx="40" cy="11" r="1.6" opacity=".75"/><circle cx="36.6" cy="9.6" r="1.1" opacity=".65"/></g>' +
+      '<ellipse cx="22" cy="22" rx="5" ry="2.4" transform="rotate(-38 22 22)" fill="'+c+'" opacity=".55"/>' +
+    '</svg>';
+  }
+  var CUERPO = '<svg viewBox="-8 0 30 100" aria-hidden="true">' +
+    '<path d="M6 22 C4.5 14 1 8 -4 3.5 M8 22 C9.5 14 13 8 18 3.5" stroke="#3B2A40" stroke-width=".8" fill="none" stroke-linecap="round"/>' +
+    '<ellipse cx="-4.3" cy="3.2" rx="1.2" ry="1.7" transform="rotate(-40 -4.3 3.2)" fill="#3B2A40"/><ellipse cx="18.3" cy="3.2" rx="1.2" ry="1.7" transform="rotate(40 18.3 3.2)" fill="#3B2A40"/>' +
+    '<circle cx="7" cy="24.5" r="3" fill="#3B2A40"/><circle cx="5.6" cy="23.8" r=".7" fill="#BC95B4"/><circle cx="8.4" cy="23.8" r=".7" fill="#BC95B4"/>' +
+    '<ellipse cx="7" cy="35" rx="3.8" ry="8.5" fill="url(#gCuerpo)"/>' +
+    '<path d="M4 31 Q7 29 10 31 M3.6 35 Q7 33 10.4 35" stroke="#9E7FA4" stroke-width=".45" fill="none" opacity=".7"/>' +
+    '<ellipse cx="7" cy="60" rx="2.9" ry="17" fill="url(#gCuerpo)"/>' +
+    '<path d="M4.6 49 H9.4 M4.3 54 H9.7 M4.2 59 H9.8 M4.3 64 H9.7 M4.7 69 H9.3 M5.4 73.5 H8.6" stroke="#F4D0DC" stroke-width=".55" opacity=".4"/>' +
+  '</svg>';
+  function mariposa(tono, size, extra){
+    var id = 'm' + (nBf++);
+    var el = document.createElement('span'); el.className = 'bf' + (extra ? ' ' + extra : '');
+    el.style.setProperty('--s', size + 'px');
+    el.innerHTML = '<span class="bf-bob"><span class="bf-3d"><span class="bf-tilt">' +
+      '<span class="w l">' + ala(TONOS[tono], id + 'l') + '</span>' +
+      '<span class="w r">' + ala(TONOS[tono], id + 'r') + '</span>' +
+      '<span class="cuerpo">' + CUERPO + '</span>' +
+    '</span></span></span>';
+    return el;
+  }
+  // Mariposas posadas a lo largo de la invitación: data-bf="tono,tamaño,giro,top,right,bottom,left"
+  document.querySelectorAll('.posa').forEach(function(p, i){
+    var d = p.dataset.bf.split(',');
+    p.style.top = d[3]; p.style.right = d[4]; p.style.bottom = d[5]; p.style.left = d[6];
+    p.style.transform = 'rotate(' + d[2] + 'deg)';
+    var b = mariposa(d[0], +d[1], 'posada'); b.style.setProperty('--wdelay', (-i * .37) + 's');
+    p.appendChild(b);
+  });
+
+  var bfs = $('mariposas');
+  var conPath = window.CSS && CSS.supports && CSS.supports('offset-path', 'path("M0 0 L1 1")');
+  if (conPath) bfs.classList.add('op');
+  function volar(el, pts, dur, delay, quedarse){
+    var d = 'M' + pts[0][0] + ' ' + pts[0][1];
+    for (var i = 1; i < pts.length; i++) {
+      var p = pts[i - 1], q = pts[i];
+      var c1x = p[0] + (q[0] - p[0]) * .2 + rnd(-40, 40), c1y = p[1] + (q[1] - p[1]) * .1;
+      var c2x = q[0] + rnd(-45, 45), c2y = q[1] + (quedarse && i === pts.length - 1 ? 70 : rnd(25, 60));
+      d += ' C' + f(c1x) + ' ' + f(c1y) + ' ' + f(c2x) + ' ' + f(c2y) + ' ' + f(q[0]) + ' ' + f(q[1]);
+    }
+    var fin = quedarse ? 1 : 0;
+    var opts = { duration: dur, delay: delay, fill: 'both', easing: quedarse ? 'cubic-bezier(.3,.5,.35,1)' : 'cubic-bezier(.35,.2,.55,.95)' };
+    if (conPath) {
+      el.style.offsetPath = 'path("' + d + '")';
+      el.animate([
+        { offsetDistance: '0%', opacity: 0, transform: 'scale(.35)' },
+        { offset: .1, opacity: 1, transform: 'scale(1)' },
+        { offset: .85, opacity: 1 },
+        { offsetDistance: '100%', opacity: fin, transform: 'scale(' + (quedarse ? .9 : .95) + ')' }
+      ], opts);
+    } else {
+      var kf = pts.map(function(p, i){ return { transform: 'translate(' + p[0] + 'px,' + p[1] + 'px)', opacity: i === 0 ? 0 : (i === pts.length - 1 ? fin : 1) }; });
+      el.animate(kf, opts);
+    }
+    if (quedarse) setTimeout(function(){ el.classList.add('posada'); }, delay + dur - 400);
+  }
+  function soltarMariposas(){
+    if (reduce) return;
+    var r = $('envWrap').getBoundingClientRect(), W = r.width, H = r.height;
+    var lista = [['lila', 84], ['rosa', 72], ['uva', 92], ['viejo', 66], ['malva', 78], ['rosa', 60]];
+    lista.forEach(function(b, i){
+      var el = mariposa(b[0], b[1]); bfs.appendChild(el);
+      var dir = i % 2 ? 1 : -1;
+      volar(el, [
+        [rnd(-20, 20), 30],
+        [dir * rnd(40, 120), -rnd(130, 210)],
+        [-dir * rnd(10, 90), -rnd(290, 390)],
+        [dir * rnd(90, 200), -rnd(600, 760)]
+      ], rnd(7600, 9800), 1500 + i * 280);
+    });
+    var posada = mariposa('uva', 70); posada.style.setProperty('--tilt', '22deg'); bfs.appendChild(posada);
+    var lx = W * .3, ly = -H * .848 - 8;
+    volar(posada, [[0, 30], [-W * .25, -H * .9], [lx, ly]], 6800, 2100, true);
+  }
+
+  /* ===== Fotos: salen primero del sobre y se acomodan alrededor ===== */
+  var VUELO_FOTOS = {
+    a: [['1%', '-25%', -13], ['-3%', '-62%', -20], ['-12%', '33%', -12]],
+    b: [['35.5%', '-31%', 3], ['37%', '-72%', 6], ['70%', '64%', -8]],
+    c: [['70%', '-22%', 12], ['73%', '-58%', 18], ['81%', '29%', 11]]
+  };
+  function sacarFotos(){
+    ['a', 'b', 'c'].forEach(function(k, i){
+      var v = VUELO_FOTOS[k], el = document.querySelector('.pola.' + k);
+      var kf = [
+        { offset: 0, left: v[0][0], top: v[0][1], transform: 'rotate(' + v[0][2] + 'deg)', zIndex: 2, easing: 'cubic-bezier(.3,.6,.35,1)' },
+        { offset: .44, left: v[1][0], top: v[1][1], transform: 'rotate(' + v[1][2] + 'deg) scale(1.04)', zIndex: 2, easing: 'cubic-bezier(.45,.05,.3,1)' },
+        { offset: .45, zIndex: 4 },
+        { offset: 1, left: v[2][0], top: v[2][1], transform: 'rotate(' + v[2][2] + 'deg)', zIndex: 4 }
+      ];
+      var an = el.animate(kf, { duration: reduce ? 1 : 2300, delay: reduce ? 0 : 1250 + i * 140, fill: 'forwards' });
+      if (k === 'c') an.finished.then(function(){ fotosListas = true; $('envWrap').classList.add('listas'); });
+    });
+  }
+
+  /* ===== Visor de fotos (solo cuando ya están frente al sobre) ===== */
+  var fotosListas = false, fotoActual = 0;
+  var FOTOS = [
+    { k: 'a', src: 'img/pola1.jpg', cap: 'nosotros', alt: 'Carolina y Camilo mirándose de cerca al atardecer' },
+    { k: 'c', src: 'img/pola3.jpg', cap: 'nuestro gran día', alt: 'Carolina y Camilo caminando de la mano junto a un cactus' },
+    { k: 'b', src: 'img/pola2.jpg', cap: 'para siempre', alt: 'Carolina y Camilo besándose entre sus dos motos al atardecer' }
+  ];
+  var visor = $('visor');
+  function mostrarFoto(i){
+    fotoActual = (i + FOTOS.length) % FOTOS.length;
+    var f = FOTOS[fotoActual]; $('vImg').src = f.src; $('vImg').alt = f.alt; $('vCap').textContent = f.cap;
+  }
+  function abrirVisor(k){
+    var i = 0; FOTOS.forEach(function(f, j){ if (f.k === k) i = j; });
+    mostrarFoto(i); visor.hidden = false;
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ visor.classList.add('on'); }); });
+    $('vCerrar').focus({ preventScroll: true });
+  }
+  function cerrarVisor(){
+    visor.classList.remove('on');
+    setTimeout(function(){ visor.hidden = true; }, 450);
+    $('sobre').focus({ preventScroll: true });
+  }
+  $('vCerrar').addEventListener('click', cerrarVisor);
+  $('vPrev').addEventListener('click', function(){ mostrarFoto(fotoActual - 1); });
+  $('vNext').addEventListener('click', function(){ mostrarFoto(fotoActual + 1); });
+  visor.addEventListener('click', function(e){ if (e.target === visor) cerrarVisor(); });
+  document.addEventListener('keydown', function(e){
+    if (visor.hidden) return;
+    if (e.key === 'Escape') cerrarVisor();
+    else if (e.key === 'ArrowLeft') mostrarFoto(fotoActual - 1);
+    else if (e.key === 'ArrowRight') mostrarFoto(fotoActual + 1);
+  });
+  var toqueX = null;
+  visor.addEventListener('touchstart', function(e){ toqueX = e.touches[0].clientX; }, { passive: true });
+  visor.addEventListener('touchend', function(e){
+    if (toqueX === null) return;
+    var dx = e.changedTouches[0].clientX - toqueX; toqueX = null;
+    if (Math.abs(dx) > 45) mostrarFoto(fotoActual + (dx < 0 ? 1 : -1));
+  });
+
+  /* ===== Nombres de la tarjeta: lo más grandes posible sin salirse ===== */
+  function ajustarNombres(){
+    var el = $('cardNombres'), max = el.parentNode.clientWidth * .93, fs = 46;
+    if (!max) return;
+    el.style.fontSize = fs + 'px';
+    while (el.offsetWidth > max && fs > 22) { fs -= 1; el.style.fontSize = fs + 'px'; }
+  }
+  ajustarNombres();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustarNombres);
+  window.addEventListener('resize', ajustarNombres);
+
+  /* ===== Sobre ===== */
+  var abierto = false;
+  $('sobre').addEventListener('click', function(e){
+    if (abierto) {
+      var foto = e.target.closest && e.target.closest('.pola');
+      if (foto && fotosListas) abrirVisor(foto.classList.contains('a') ? 'a' : foto.classList.contains('b') ? 'b' : 'c');
+      return;
+    }
+    abierto = true;
+    this.classList.add('open'); $('envWrap').classList.add('abierto'); soltarMariposas(); sacarFotos();
+    this.setAttribute('aria-label','Invitación abierta');
+    audio.volume = 0.8; audio.play().catch(function(){});
+    btnM.classList.add('show');
+    $('hint').hidden = true;
+    var v = $('verInv'); v.hidden = false;
+    setTimeout(function(){ v.classList.add('show'); v.focus({preventScroll:true}); var t = $('tipFotos'); t.hidden = false; requestAnimationFrame(function(){ t.classList.add('show'); }); }, reduce ? 0 : 5000);
+  });
+  function mostrarPadrinos(){
+    var pd = $('padrinos'); pd.hidden = false;
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ pd.classList.add('on'); }); });
+    if (!reduce) {
+      var cont = $('padBf');
+      [['oro', 80], ['oro', 64], ['rosa', 70], ['oro', 72], ['lila', 60], ['oro', 56], ['oro', 66]].forEach(function(b, i){
+        var el = mariposa(b[0], b[1]); cont.appendChild(el);
+        var dir = i % 2 ? 1 : -1;
+        volar(el, [[rnd(-30, 30), 120], [dir * rnd(50, 140), -rnd(40, 120)], [-dir * rnd(10, 90), -rnd(200, 300)], [dir * rnd(120, 220), -rnd(520, 700)]], rnd(7000, 9500), 400 + i * 260);
+      });
+    }
+    setTimeout(function(){ $('padSeguir').focus({ preventScroll: true }); }, 900);
+  }
+  $('padSeguir').addEventListener('click', function(){
+    var pd = $('padrinos'); pd.classList.remove('on');
+    document.documentElement.classList.remove('locked'); window.scrollTo(0, 0);
+    setTimeout(function(){ pd.hidden = true; }, 1000);
+  });
+  $('verInv').addEventListener('click', function(){
+    var intro = $('intro'); intro.classList.add('gone');
+    if (INV && INV.padrinos) { mostrarPadrinos(); setTimeout(function(){ intro.hidden = true; cayendo = false; if (relojHojas) clearInterval(relojHojas); }, 1300); return; }
+    document.documentElement.classList.remove('locked');
+    window.scrollTo(0,0);
+    setTimeout(function(){ intro.hidden = true; cayendo = false; if (relojHojas) clearInterval(relojHojas); }, 1300);
+  });
+
+  /* ===== Cuenta regresiva ===== */
+  var celdas = {}; document.querySelectorAll('#cuenta b').forEach(function(b){ celdas[b.dataset.u] = b; });
+  function dos(n){ return (n < 10 ? '0' : '') + n; }
+  function contar(){
+    var d = Math.max(0, BODA - Date.now());
+    var val = { d: String(Math.floor(d/864e5)), h: dos(Math.floor(d/36e5)%24), m: dos(Math.floor(d/6e4)%60), s: dos(Math.floor(d/1e3)%60) };
+    Object.keys(val).forEach(function(k){
+      var b = celdas[k]; if (b.textContent !== val[k]) { b.textContent = val[k]; if (!reduce) { b.classList.remove('tick'); void b.offsetWidth; b.classList.add('tick'); } }
+    });
+    if (d === 0) $('cdTxt').textContent = '¡Hoy es el gran día!';
+  }
+  contar(); setInterval(contar, 1000);
+
+  /* ===== Mapa: ilustrado en vista previa, Google Maps real en la web publicada ===== */
+  var mapa = $('mapa');
+  if (!enVistaPrevia) {
+    var fr = document.createElement('iframe');
+    fr.src = MAPA_EMBED; fr.title = 'Mapa de la Parroquia Sagrado Corazón de Jesús'; fr.loading = 'lazy'; fr.referrerPolicy = 'no-referrer-when-downgrade';
+    mapa.innerHTML = ''; mapa.appendChild(fr);
+  } else {
+    var svgNS = 'http://www.w3.org/2000/svg';
+    var dot = document.createElementNS(svgNS,'circle'); dot.setAttribute('r','4.5'); dot.setAttribute('fill','#F4D0DC'); dot.setAttribute('stroke','#4E3654'); dot.setAttribute('stroke-width','1.2'); dot.setAttribute('opacity','0');
+    var mv = document.createElementNS(svgNS,'animateMotion'); mv.setAttribute('dur','3.4s'); mv.setAttribute('begin','indefinite'); mv.setAttribute('fill','freeze'); mv.setAttribute('keyPoints','0;1'); mv.setAttribute('keyTimes','0;1'); mv.setAttribute('calcMode','spline'); mv.setAttribute('keySplines','.45 .05 .35 1');
+    var mp = document.createElementNS(svgNS,'mpath'); mp.setAttribute('href','#ruta'); mv.appendChild(mp); dot.appendChild(mv);
+    mapa.querySelector('svg').appendChild(dot);
+    mapa._dot = dot; mapa._mv = mv;
+  }
+
+  /* ===== Aparición al deslizar ===== */
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        e.target.classList.remove('pre'); io.unobserve(e.target);
+        if (e.target === mapa && mapa._mv) { mapa.classList.add('play'); setTimeout(function(){ mapa._dot.setAttribute('opacity','1'); try { mapa._mv.beginElement(); } catch(err){} }, 300); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('pre'); io.observe(el); });
+  } else { mapa.classList.add('play'); }
+
+  /* ===== Confirmación ===== */
+  var estado = { personas: CUPO, asiste: '', cena: '' };
+  if (INV) { var ct = $('cupoTxt'); ct.hidden = false; ct.textContent = CUPO === 1 ? 'Tu invitación es personal (1 persona)' : 'Esta invitación es para hasta ' + CUPO + ' personas'; }
+  if (CUPO === 1) $('fgPersonas').hidden = true;
+  var form = $('form');
+  function guardarLocal(o){ try { localStorage.setItem('rsvp-cc-' + (codigo || 'general'), JSON.stringify(o)); } catch(e){} }
+  function leerLocal(){ try { return JSON.parse(localStorage.getItem('rsvp-cc-' + (codigo || 'general')) || 'null'); } catch(e){ return null; } }
+
+  function pintarPersonas(){ $('personas').textContent = estado.personas; $('menos').disabled = estado.personas <= 1; $('mas').disabled = estado.personas >= CUPO; }
+  $('menos').addEventListener('click', function(){ if (estado.personas > 1) { estado.personas--; pintarPersonas(); } });
+  $('mas').addEventListener('click', function(){ if (estado.personas < CUPO) { estado.personas++; pintarPersonas(); } });
+  pintarPersonas();
+
+  function pintarPills(){
+    document.querySelectorAll('.pills').forEach(function(g){
+      var k = g.dataset.group;
+      g.querySelectorAll('.pill').forEach(function(p){ p.setAttribute('aria-pressed', String(estado[k] === p.dataset.v)); });
+    });
+    $('fgCena').hidden = estado.asiste === 'no';
+  }
+  document.querySelectorAll('.pills').forEach(function(g){
+    g.addEventListener('click', function(ev){
+      var p = ev.target.closest('.pill'); if (!p) return;
+      estado[g.dataset.group] = p.dataset.v; $('err').textContent = ''; pintarPills();
+    });
+  });
+
+  function mostrarHecho(r){
+    form.hidden = true; $('done').hidden = false;
+    var primer = (r.nombre || '').split(' ')[0];
+    $('doneTitle').textContent = '¡Gracias' + (primer ? ', ' + primer : '') + '!';
+    $('doneTxt').textContent = r.asiste === 'si'
+      ? 'Recibimos tu confirmación para ' + r.personas + (r.personas === 1 ? ' persona' : ' personas') + (r.cena === 'si' ? ', a la ceremonia y la cena.' : ', solo a la ceremonia.') + ' Nos vemos el 11 de diciembre.'
+      : 'Lamentamos que no puedan acompañarnos. Gracias por avisarnos con cariño.';
+    $('prevNote').hidden = !(enVistaPrevia || !HOJA_URL);
+  }
+  $('editar').addEventListener('click', function(){ $('done').hidden = true; form.hidden = false; $('nombre').focus(); });
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var nombre = $('nombre').value.trim();
+    if (!nombre) { $('err').textContent = 'Escribe tu nombre para poder confirmar.'; $('nombre').focus(); return; }
+    if (!estado.asiste) { $('err').textContent = 'Cuéntanos si asistirás a la ceremonia.'; return; }
+    if (estado.asiste === 'si' && !estado.cena) { $('err').textContent = 'Cuéntanos si nos acompañas también a la cena.'; return; }
+    var r = { codigo: codigo, invitacion: invitado, lado: INV ? INV.lado : '', cupo: CUPO, nombre: nombre, personas: estado.asiste === 'si' ? Math.min(estado.personas, CUPO) : 0, asiste: estado.asiste, cena: estado.asiste === 'si' ? estado.cena : 'no' };
+    var btn = $('enviar'); btn.disabled = true; btn.textContent = 'Enviando…';
+    var fin = function(){ btn.disabled = false; btn.textContent = 'Confirmar asistencia'; guardarLocal(r); mostrarHecho(r); };
+    if (HOJA_URL && !enVistaPrevia) {
+      fetch(HOJA_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(r) })
+        .then(fin)
+        .catch(function(){ btn.disabled = false; btn.textContent = 'Confirmar asistencia'; $('err').textContent = 'No pudimos enviar tu confirmación. Revisa tu conexión e inténtalo de nuevo.'; });
+    } else { setTimeout(fin, 600); }
+  });
+
+  if (Date.now() > CIERRE) { form.hidden = true; $('cerrado').hidden = false; $('rsvpSub').hidden = true; }
+  else {
+    var previo = leerLocal();
+    if (previo && previo.nombre) {
+      estado.personas = Math.min(previo.personas || CUPO, CUPO); estado.asiste = previo.asiste || ''; estado.cena = previo.cena || '';
+      $('nombre').value = previo.nombre; pintarPersonas(); pintarPills(); mostrarHecho(previo);
+    }
+  }
+  pintarPills();
+
+  /* ===== Menú del restaurante ===== */
+  var menuV = $('menuVisor'), menuP = $('menuPaginas'), chipsMenu = menuV.querySelectorAll('.mv-chip');
+  function marcarChip(n){ chipsMenu.forEach(function(c){ c.setAttribute('aria-current', String(c.dataset.p === n)); }); }
+  function abrirMenu(){
+    menuV.hidden = false; document.documentElement.classList.add('locked');
+    menuP.scrollTop = 0; marcarChip('1');
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ menuV.classList.add('on'); }); });
+    $('menuCerrar').focus({ preventScroll: true });
+  }
+  function cerrarMenu(){
+    menuV.classList.remove('on'); document.documentElement.classList.remove('locked');
+    setTimeout(function(){ menuV.hidden = true; }, 400);
+    $('btnMenu').focus({ preventScroll: true });
+  }
+  $('btnMenu').addEventListener('click', abrirMenu);
+  $('menuCerrar').addEventListener('click', cerrarMenu);
+  document.addEventListener('keydown', function(e){ if (!menuV.hidden && e.key === 'Escape') cerrarMenu(); });
+  chipsMenu.forEach(function(c){
+    c.addEventListener('click', function(){
+      var img = $('mp' + c.dataset.p);
+      menuP.scrollTo({ top: img.offsetTop - menuP.offsetTop - 4, behavior: reduce ? 'auto' : 'smooth' });
+      marcarChip(c.dataset.p);
+      c.scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduce ? 'auto' : 'smooth' });
+    });
+  });
+  menuP.addEventListener('scroll', function(){
+    var actual = '1', limite = menuP.scrollTop + menuP.clientHeight * .35;
+    for (var i = 1; i <= 7; i++) { if ($('mp' + i).offsetTop - menuP.offsetTop <= limite) actual = String(i); }
+    marcarChip(actual);
+  }, { passive: true });
+
+})();
+</script>
+
+</body>
+</html>

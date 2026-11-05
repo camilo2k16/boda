@@ -1,0 +1,50 @@
+INVITACIÓN DE BODA · CAMILO Y CAROLINA
+======================================
+
+Contenido de esta carpeta
+- index.html ............ la invitación
+- config.js ............. aquí se pega la URL de la hoja de Google (paso 4)
+- img/ y media/ ......... fotos, flores, menú y la canción
+- google-sheets/Codigo.gs  código para la hoja de confirmaciones
+
+Links personales
+Cada invitado abre:  https://TU-USUARIO.github.io/boda/?i=CODIGO
+La hoja "Invitados" de Google arma todos los links y el mensaje de WhatsApp automáticamente.
+
+Códigos
+  byron-oriana           Byron y Oriana       Novio  cupo 2   (padrinos)
+  carlos                 Carlos               Novio  cupo 1
+  laura                  Laura                Novio  cupo 1
+  daniel-valencia        Daniel Valencia      Novio  cupo 1
+  nicolas-ospina         Nicolás Ospina       Novio  cupo 1
+  karla-puerto           Karla Puerto         Novio  cupo 2
+  angel                  Ángel                Novio  cupo 1
+  fredy                  Fredy                Novio  cupo 3
+  dayana                 Dayana               Novio  cupo 1
+  angie                  Angie                Novio  cupo 1
+  ingrid                 Ingrid               Novio  cupo 1
+  esly                   Esly                 Novio  cupo 1
+  estefany               Estefany             Novio  cupo 1
+  heidy                  Heidy                Novio  cupo 1
+  jeldin                 Jeldin               Novio  cupo 1
+  karina                 Karina               Novio  cupo 2
+  vanessa                Vanessa              Novio  cupo 2
+  marisol                Marisol              Novia  cupo 1
+  alexandra              Alexandra            Novia  cupo 2
+  monica                 Mónica               Novia  cupo 4
+  leidy                  Leidy                Novia  cupo 1
+  maria-monica           María Mónica         Novia  cupo 1
+  mariana-julian         Mariana y Julián     Novia  cupo 2
+  camilo                 Camilo               Novia  cupo 3
+  heber                  Heber                Novia  cupo 3
+  juliana                Juliana              Novia  cupo 1
+  johana                 Johana               Novia  cupo 1
+  kathe                  Kathe                Novia  cupo 2
+  francy                 Francy               Novia  cupo 4
+  papa-william           Papá William         Novia  cupo 1
+  lorena-urena           Lorena Ureña         Novia  cupo 4
+  primo-juan-carlos      Primo Juan Carlos    Novia  cupo 2
+
+Si cambian un nombre o un cupo, cámbienlo en los DOS lugares:
+- index.html  (busquen "var INVITADOS")
+- Codigo.gs   (lista INVITADOS al inicio)  y vuelvan a ejecutar "configurar".
