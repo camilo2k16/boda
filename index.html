@@ -717,7 +717,7 @@ section{width:100%;display:flex;flex-direction:column;align-items:center;gap:22p
       <span class="posa" data-bf="malva,50,14,-16px,24px,auto,auto" aria-hidden="true"></span>
       <div class="rsvp-head">
         <h2 class="script" id="t-rsvp">¿Nos acompañas?</h2>
-        <b>Confirma antes del 15 de noviembre</b>
+        <b>Confirma hasta el martes 24 de noviembre</b>
         <small id="rsvpSub">Pasada esta fecha, el formulario se cerrará.</small>
         <p class="cupo" id="cupoTxt" hidden></p>
       </div>
@@ -763,7 +763,7 @@ section{width:100%;display:flex;flex-direction:column;align-items:center;gap:22p
 
       <div class="done" id="cerrado" hidden>
         <b>Confirmaciones cerradas</b>
-        <p>El plazo para confirmar terminó el 15 de noviembre. Si tienes alguna duda, escríbenos directamente.</p>
+        <p>El plazo para confirmar terminó el 24 de noviembre. Si tienes alguna duda, escríbenos directamente.</p>
       </div>
     </div>
   </section>
@@ -784,7 +784,7 @@ section{width:100%;display:flex;flex-direction:column;align-items:center;gap:22p
 (function(){
   /* ===== Configuración ===== */
   var BODA = Date.UTC(2026, 11, 11, 23, 0, 0);          // 11 dic 2026, 6:00 p.m. Colombia
-  var CIERRE = Date.UTC(2026, 10, 16, 4, 59, 59);       // 15 nov 2026, 11:59 p.m. Colombia
+  var CIERRE = Date.UTC(2026, 10, 25, 4, 59, 59);       // martes 24 nov 2026, 11:59 p.m. Colombia
   var HOJA_URL = (window.CONFIG && /^https:\/\/script\.google\.com\//.test(window.CONFIG.HOJA_URL || '')) ? window.CONFIG.HOJA_URL : '';  // se configura en config.js
   var MAPA_EMBED = 'https://maps.google.com/maps?q=7.8895683,-72.4895686&z=17&output=embed';
   var enVistaPrevia = (function(){ try { return window.self !== window.top; } catch(e){ return true; } })();
@@ -862,9 +862,9 @@ section{width:100%;display:flex;flex-direction:column;align-items:center;gap:22p
     'byron-oriana': { n: 'Byron y Oriana', cupo: 2, lado: 'Novio', padrinos: true },
     'carlos': { n: 'Carlos', cupo: 1, lado: 'Novio' },
     'laura': { n: 'Laura', cupo: 1, lado: 'Novio' },
-    'daniel-valencia': { n: 'Daniel', cupo: 1, lado: 'Novio' },
-    'nicolas-ospina': { n: 'Nicolás', cupo: 1, lado: 'Novio' },
-    'karla-puerto': { n: 'Karla', cupo: 2, lado: 'Novio' },
+    'daniel-valencia': { n: 'Daniel Valencia', cupo: 1, lado: 'Novio' },
+    'nicolas-ospina': { n: 'Nicolás Ospina', cupo: 1, lado: 'Novio' },
+    'karla-puerto': { n: 'Karla Puerto', cupo: 2, lado: 'Novio' },
     'angel': { n: 'Ángel', cupo: 1, lado: 'Novio' },
     'fredy': { n: 'Fredy', cupo: 3, lado: 'Novio' },
     'dayana': { n: 'Dayana', cupo: 1, lado: 'Novio' },
