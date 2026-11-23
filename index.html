@@ -902,20 +902,21 @@ section{width:100%;display:flex;flex-direction:column;align-items:center;gap:22p
   var codigo = '';
   try { codigo = (new URLSearchParams(location.search).get('i') || location.hash.slice(1) || '').toLowerCase().trim(); } catch(e){}
   if (codigo === 'primo-juan-carlos') codigo = 'juan-carlos';   // link anterior
-  var INV = Object.prototype.hasOwnProperty.call(INVITADOS, codigo) ? INVITADOS[codigo] : null;
-  if (!INV) codigo = '';
-  var CUPO = INV ? INV.cupo : 2;
-  var invitado = INV ? INV.n : '';
-  if (INV) {
-    $('paraNombre').textContent = INV.n;
-    $('nombre').value = INV.n;
-    $('introSub').textContent = INV.cupo > 1 ? 'Queremos invitarlos a celebrar nuestra boda' : 'Queremos invitarte a celebrar nuestra boda';
-    if (INV.padrinos) {
-      $('introPara').textContent = 'Para nuestros queridos padrinos';
-      $('introSub').textContent = 'Con ustedes a nuestro lado, este día será aún más especial';
-      $('cardK').textContent = 'Nuestros padrinos';
-    }
+  codigo = codigo.replace(/[^a-z0-9-]/g, '').slice(0, 40);
+  // La lista de arriba es el respaldo: el nombre y el cupo vigentes se leen de la hoja de Google (más abajo).
+  var INV = null, CUPO = 2, invitado = '', formListo = false;
+  function aplicarInvitado(x){
+    if (!x) return;
+    INV = x; CUPO = Math.max(1, Math.min(parseInt(x.cupo, 10) || 1, 20)); invitado = x.n;
+    $('paraNombre').textContent = x.n;
+    if (!$('nombre').dataset.tocado) $('nombre').value = x.n;
+    $('introPara').textContent = x.padrinos ? 'Para nuestros queridos padrinos' : 'Para';
+    $('introSub').textContent = x.padrinos ? 'Con ustedes a nuestro lado, este día será aún más especial'
+      : (CUPO > 1 ? 'Queremos invitarlos a celebrar nuestra boda' : 'Queremos invitarte a celebrar nuestra boda');
+    $('cardK').textContent = x.padrinos ? 'Nuestros padrinos' : 'Nos casamos';
+    if (formListo) pintarCupo();
   }
+  aplicarInvitado(Object.prototype.hasOwnProperty.call(INVITADOS, codigo) ? INVITADOS[codigo] : null);
 
   /* ===== Música ===== */
   var audio = $('musica'), btnM = $('btnMusica');
@@ -1183,17 +1184,31 @@ section{width:100%;display:flex;flex-direction:column;align-items:center;gap:22p
   } else { mapa.classList.add('play'); }
 
   /* ===== Confirmación ===== */
-  var estado = { personas: CUPO, asiste: '', cena: '' };
-  if (INV) { var ct = $('cupoTxt'); ct.hidden = false; ct.textContent = CUPO === 1 ? 'Tu invitación es personal (1 persona)' : 'Esta invitación es para hasta ' + CUPO + ' personas'; }
-  if (CUPO === 1) $('fgPersonas').hidden = true;
+  var estado = { personas: CUPO, asiste: '', cena: '' }, personasTocadas = false;
+  function pintarCupo(){
+    var ct = $('cupoTxt'); ct.hidden = !INV;
+    if (INV) ct.textContent = CUPO === 1 ? 'Tu invitación es personal (1 persona)' : 'Esta invitación es para hasta ' + CUPO + ' personas';
+    $('fgPersonas').hidden = CUPO === 1;
+    estado.personas = personasTocadas ? Math.min(estado.personas, CUPO) : CUPO;
+    pintarPersonas();
+  }
+  $('nombre').addEventListener('input', function(){ this.dataset.tocado = '1'; });
   var form = $('form');
   function guardarLocal(o){ try { localStorage.setItem('rsvp-cc-' + (codigo || 'general'), JSON.stringify(o)); } catch(e){} }
   function leerLocal(){ try { return JSON.parse(localStorage.getItem('rsvp-cc-' + (codigo || 'general')) || 'null'); } catch(e){ return null; } }
 
   function pintarPersonas(){ $('personas').textContent = estado.personas; $('menos').disabled = estado.personas <= 1; $('mas').disabled = estado.personas >= CUPO; }
-  $('menos').addEventListener('click', function(){ if (estado.personas > 1) { estado.personas--; pintarPersonas(); } });
-  $('mas').addEventListener('click', function(){ if (estado.personas < CUPO) { estado.personas++; pintarPersonas(); } });
-  pintarPersonas();
+  $('menos').addEventListener('click', function(){ if (estado.personas > 1) { personasTocadas = true; estado.personas--; pintarPersonas(); } });
+  $('mas').addEventListener('click', function(){ if (estado.personas < CUPO) { personasTocadas = true; estado.personas++; pintarPersonas(); } });
+  formListo = true; pintarCupo();
+
+  // Nombre y cupo actualizados desde la hoja de Google: así se agregan invitados sin tocar este archivo
+  if (codigo && HOJA_URL && !enVistaPrevia) {
+    fetch(HOJA_URL + '?i=' + encodeURIComponent(codigo))
+      .then(function(r){ return r.json(); })
+      .then(function(d){ if (d && d.ok && d.n) aplicarInvitado({ n: String(d.n), cupo: d.cupo, lado: d.lado || '', padrinos: !!d.padrinos }); })
+      .catch(function(){});
+  }
 
   function pintarPills(){
     document.querySelectorAll('.pills').forEach(function(g){
@@ -1240,7 +1255,7 @@ section{width:100%;display:flex;flex-direction:column;align-items:center;gap:22p
   else {
     var previo = leerLocal();
     if (previo && previo.nombre) {
-      estado.personas = Math.min(previo.personas || CUPO, CUPO); estado.asiste = previo.asiste || ''; estado.cena = previo.cena || '';
+      personasTocadas = true; estado.personas = Math.min(previo.personas || CUPO, CUPO); estado.asiste = previo.asiste || ''; estado.cena = previo.cena || '';
       $('nombre').value = previo.nombre; pintarPersonas(); pintarPills(); mostrarHecho(previo);
     }
   }
